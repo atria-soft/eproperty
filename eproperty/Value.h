@@ -12,7 +12,7 @@
 
 
 namespace eproperty {
-	template<typename MY_TYPE, bool isEventReceiving=false> class Value : public Property {
+	template<typename MY_TYPE> class Value : public Property {
 		private:
 			MY_TYPE m_value; //!< Current value.
 			MY_TYPE m_default; //!< Default value.
@@ -34,7 +34,7 @@ namespace eproperty {
 			  m_value(_defaultValue),
 			  m_default(_defaultValue) {
 				
-			};
+			}
 			Value(eproperty::Interface& _paramListLink,
 			      const std::string& _name,
 			      const std::string& _description = "") :
@@ -42,7 +42,7 @@ namespace eproperty {
 			  m_value(),
 			  m_default() {
 				
-			};
+			}
 			/**
 			 * @brief Destructor.
 			 */
@@ -135,7 +135,7 @@ namespace eproperty {
 			}
 	};
 	
-	template<typename MY_TYPE, bool isEventReceiving=false> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<MY_TYPE, isEventReceiving>& _obj) {
+	template<typename MY_TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<MY_TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

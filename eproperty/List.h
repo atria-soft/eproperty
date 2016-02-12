@@ -14,7 +14,7 @@
 #include <typeinfo>
 
 namespace eproperty {
-	template<typename MY_TYPE, bool isEventReceiving=false> class List : public Property {
+	template<typename MY_TYPE> class List : public Property {
 		private:
 			MY_TYPE m_value; //!< Element value ==> can be directly used.
 			MY_TYPE m_default; //!< Default value.

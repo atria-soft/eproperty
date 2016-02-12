@@ -12,7 +12,7 @@
 #include <typeinfo>
 
 namespace eproperty {
-	template<typename MY_TYPE, bool isEventReceiving=false> class Range : public Property {
+	template<typename MY_TYPE> class Range : public Property {
 		private:
 			MY_TYPE m_value; //!< Current value.
 			MY_TYPE m_min; //!< Minimum value.
