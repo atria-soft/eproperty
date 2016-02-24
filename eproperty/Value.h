@@ -12,10 +12,10 @@
 
 
 namespace eproperty {
-	template<typename MY_TYPE> class Value : public Property {
+	template<typename TYPE> class Value : public Property {
 		private:
-			MY_TYPE m_value; //!< Current value.
-			MY_TYPE m_default; //!< Default value.
+			TYPE m_value; //!< Current value.
+			TYPE m_default; //!< Default value.
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
@@ -28,7 +28,7 @@ namespace eproperty {
 			 */
 			Value(eproperty::Interface& _paramInterfaceLink,
 			      const std::string& _name,
-			      const MY_TYPE& _defaultValue,
+			      const TYPE& _defaultValue,
 			      const std::string& _description = "") :
 			  Property(_paramInterfaceLink, _name),
 			  m_value(_defaultValue),
@@ -53,7 +53,7 @@ namespace eproperty {
 			}
 			// herited methode
 			virtual std::string getType() const {
-				return typeid(MY_TYPE).name();
+				return typeid(TYPE).name();
 			}
 			// herited methode
 			virtual std::string getString() const {
@@ -88,54 +88,61 @@ namespace eproperty {
 			 * @note For performence, this function must be inline
 			 * @return the Reference value
 			 */
-			inline MY_TYPE& get() {
-				return m_value;
-			};
-			const inline MY_TYPE& get() const {
+			const inline TYPE& get() const {
 				return m_value;
 			};
 			/**
 			 * @brief Set a new value for this parameter
 			 * @param[in] newVal New value to set (set the nearest value if range is set)
 			 */
-			void set(const MY_TYPE& _newVal) {
+			void set(const TYPE& _newVal) {
 				if (_newVal != m_value) {
 					m_value = _newVal;
 					notifyChange();
 				}
+			}
+			/**
+			 * @brief Set the value of the current parameter (no check (for internal set with no check).
+			 * @note For performence, this function must be inline
+			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
+			 * TODO: Do it better ... compile check
+			 * @param[in] newVal New value to set 
+			 */
+			inline void setDirect(const TYPE& _newVal) {
+				m_value = _newVal;
+			}
+			/**
+			 * @brief Get the value of the current parameter (no check (for internal set with no check).
+			 * @note For performence, this function must be inline
+			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
+			 * TODO: Do it better ... compile check
+			 * @return a reference on the value
+			 */
+			TYPE& getDirect() {
+				return m_value;
 			}
 		private:
 			/**
 			 * @brief Get the string of the specify value.
 			 * @return convetion of the velue in string.
 			 */
-			std::string getValueSpecific(const MY_TYPE& _valueRequested) const {
+			std::string getValueSpecific(const TYPE& _valueRequested) const {
 				return etk::to_string(_valueRequested);
 			}
 		public:
-			/**
-			 * @brief assignement operator.
-			 * @param[in] newVal The new value of the parameter.
-			 */
-			const Value<MY_TYPE>& operator= (const MY_TYPE& _newVal) {
-				set(_newVal);
-				return *this;
-			};
-			operator const MY_TYPE&() const {
+			operator const TYPE&() const {
 				return m_value;
 			}
-			MY_TYPE& operator *() const noexcept {
+			const TYPE& operator *() const noexcept {
 				return m_value;
 			}
-			const MY_TYPE* operator->() const noexcept {
+			const TYPE* operator->() const noexcept {
 				return &m_value;
 			}
-			MY_TYPE* operator->() noexcept {
-				return &m_value;
-			}
+			const Value<TYPE>& operator= (const TYPE& _newVal) = delete;
 	};
 	
-	template<typename MY_TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<MY_TYPE>& _obj) {
+	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

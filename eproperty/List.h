@@ -14,11 +14,11 @@
 #include <typeinfo>
 
 namespace eproperty {
-	template<typename MY_TYPE> class List : public Property {
+	template<typename TYPE> class List : public Property {
 		private:
-			MY_TYPE m_value; //!< Element value ==> can be directly used.
-			MY_TYPE m_default; //!< Default value.
-			std::map<std::string, MY_TYPE> m_list; //!< pointer on the list of all elements.
+			TYPE m_value; //!< Element value ==> can be directly used.
+			TYPE m_default; //!< Default value.
+			std::map<std::string, TYPE> m_list; //!< pointer on the list of all elements.
 		public:
 			/**
 			 * @brief Create a parameter with List of element parameter.
@@ -28,7 +28,7 @@ namespace eproperty {
 			 */
 			List(eproperty::Interface& _paramInterfaceLink,
 			     const std::string& _name,
-			     const MY_TYPE& _defaultValue,
+			     const TYPE& _defaultValue,
 			     const std::string& _description="") :
 			  Property(_paramInterfaceLink, _name),
 			  m_value(_defaultValue),
@@ -39,7 +39,7 @@ namespace eproperty {
 			 * @brief Destructor.
 			 */
 			virtual ~List() = default;
-			void add(const MY_TYPE& _value, const std::string& _name, const std::string& _description = "") {
+			void add(const TYPE& _value, const std::string& _name, const std::string& _description = "") {
 				auto it = m_list.find(_name);
 				if (it != m_list.end()) {
 					it->second = _value;
@@ -53,7 +53,7 @@ namespace eproperty {
 			}
 			// herited methode
 			virtual std::string getType() const {
-				return typeid(MY_TYPE).name();
+				return typeid(TYPE).name();
 			}
 			// herited methode
 			virtual std::string getString() const {
@@ -94,24 +94,21 @@ namespace eproperty {
 			virtual void setDefault() {
 				set(m_default);
 			}
-			void setDefaultValue(const MY_TYPE& _value) {
+			void setDefaultValue(const TYPE& _value) {
 				m_default = _value;
 			}
 			/**
 			 * @brief Get the value of the current parameter.
 			 * @return the Reference value
 			 */
-			inline MY_TYPE& get() {
-				return m_value;
-			};
-			const inline MY_TYPE& get() const {
+			const inline TYPE& get() const {
 				return m_value;
 			};
 			/**
 			 * @brief Set the value of the current parameter.
 			 * @param[in] _newVal New value of the parameter. (not set if out of range)
 			 */
-			void set(MY_TYPE _newVal) {
+			void set(TYPE _newVal) {
 				if (_newVal == m_value) {
 					return;
 				}
@@ -124,13 +121,33 @@ namespace eproperty {
 				}
 				EPROPERTY_WARNING("paramList value=??? is not un the list ... ==> no change");
 			}
+			/**
+			 * @brief Set the value of the current parameter (no check (for internal set with no check).
+			 * @note For performence, this function must be inline
+			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
+			 * TODO: Do it better ... compile check
+			 * @param[in] newVal New value to set 
+			 */
+			inline void setDirect(const TYPE& _newVal) {
+				m_value = _newVal;
+			};
+			/**
+			 * @brief Get the value of the current parameter (no check (for internal set with no check).
+			 * @note For performence, this function must be inline
+			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
+			 * TODO: Do it better ... compile check
+			 * @return a reference on the value
+			 */
+			TYPE& getDirect() {
+				return m_value;
+			}
 		private:
 			/**
 			 * @brief Get the element description from real Value.
 			 * @param[in] _intValue value that might be converted in string.
 			 * @return the description string coresponding to this ID.
 			 */
-			std::string getElement(MY_TYPE _intValue) const {
+			std::string getElement(TYPE _intValue) const {
 				for (auto &it : m_list) {
 					if (it.second == _intValue) {
 						return it.first;
@@ -139,28 +156,18 @@ namespace eproperty {
 				return "???";
 			}
 		public:
-			/**
-			 * @brief assignement operator.
-			 * @param[in] newVal The new value of the parameter.
-			 */
-			const List& operator= (MY_TYPE _newVal) {
-				set(_newVal);
-				return *this;
-			}
-			operator const MY_TYPE&() const {
+			const List<TYPE>& operator= (const TYPE& _newVal) = delete;
+			operator const TYPE&() const {
 				return m_value;
 			}
-			MY_TYPE& operator *() const noexcept {
+			const TYPE& operator *() const noexcept {
 				return m_value;
 			}
-			const MY_TYPE* operator->() const noexcept {
-				return &m_value;
-			}
-			MY_TYPE* operator->() noexcept {
+			const TYPE* operator->() const noexcept {
 				return &m_value;
 			}
 	};
-	template<typename MY_TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::List<MY_TYPE>& _obj) {
+	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::List<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

@@ -70,6 +70,19 @@ namespace eproperty {
 			 * @brief Reset the value to the default value.
 			 */
 			virtual void setDefault() = 0;
+		public:
+			template<class TYPE>
+			bool operator== (const TYPE& _obj) const = delete;
+			template<class TYPE>
+			bool operator!= (const TYPE& _obj) const = delete;
+			template<class TYPE>
+			bool operator<= (const TYPE& _obj) const = delete;
+			template<class TYPE>
+			bool operator>= (const TYPE& _obj) const = delete;
+			template<class TYPE>
+			bool operator< (const TYPE& _obj) const = delete;
+			template<class TYPE>
+			bool operator> (const TYPE& _obj) const = delete;
 	};
 	class Ref {
 		public:
