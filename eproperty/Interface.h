@@ -16,7 +16,7 @@ namespace eproperty {
 	class Interface {
 		friend class eproperty::Property; // to register property in the list.
 		private:
-			std::vector<eproperty::Property*> m_list;  //!< list of availlable Propertys (no need to free)
+			std::vector<eproperty::Property*> m_list; //!< list of availlable Propertys (no need to free)
 		public:
 			/**
 			 * @brief Constructor.
@@ -57,15 +57,13 @@ namespace eproperty {
 			 */
 			void propertyDisplay(bool _changeOnly = false) const;
 			/**
-			 * @brief Called when a property change value.
-			 * @param[in] _paramPointer Pointer on the property (to know which property have change);
-			 */
-			virtual void onPropertyChangeValue(const eproperty::Ref& _paramPointer);
-			/**
 			 * @brief Get All the property configuration:
 			 * @return map on the propertys
 			 */
 			std::map<std::string, std::string> propertyGetAll(bool _notIfDefault=true) const;
+			
+			// deprecated
+			virtual void onPropertyChangeValue();
 		public:
 			/**
 			 * @brief Get count of propertys.

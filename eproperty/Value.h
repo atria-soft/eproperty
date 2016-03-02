@@ -19,29 +19,24 @@ namespace eproperty {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
-			 * @param[in] _objectLink reference on the parameter lister.
+			 * @param[in] _owner Owner of the parameter.
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
-			 * @param[in] _min Minumum value.
-			 * @param[in] _max Maximum value.
 			 * @param[in] _description description of the parameter.
+			 * @param[in] _setObs function of the class that opserve the change of the value
 			 */
-			Value(eproperty::Interface& _paramInterfaceLink,
+			template<class CLASS_TYPE>
+			Value(CLASS_TYPE* _owner,
 			      const std::string& _name,
 			      const TYPE& _defaultValue,
-			      const std::string& _description = "") :
-			  Property(_paramInterfaceLink, _name),
+			      const std::string& _description = "",
+			      void (CLASS_TYPE::*_setObs)()=nullptr) :
+			  Property(_owner, _name),
 			  m_value(_defaultValue),
 			  m_default(_defaultValue) {
-				
-			}
-			Value(eproperty::Interface& _paramListLink,
-			      const std::string& _name,
-			      const std::string& _description = "") :
-			  Property(_paramListLink, _name),
-			  m_value(),
-			  m_default() {
-				
+				if (_setObs != nullptr) {
+					setObserver([=](){(*_owner.*_setObs)();});
+				}
 			}
 			/**
 			 * @brief Destructor.

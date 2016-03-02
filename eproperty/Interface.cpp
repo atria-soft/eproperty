@@ -73,7 +73,7 @@ void eproperty::Interface::propertyDisplay(bool _changeOnly) const {
 	}
 }
 
-void eproperty::Interface::onPropertyChangeValue(const eproperty::Ref& _paramPointer) {
+void eproperty::Interface::onPropertyChangeValue() {
 	// nothing to do ...
 }
 

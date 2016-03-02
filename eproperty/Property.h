@@ -10,16 +10,23 @@
 #include <eproperty/Interface.h>
 #include <string>
 #include <typeinfo>
+#include <functional>
 
 namespace eproperty {
 	class Ref;
 	class Property {
+		public:
+			using Observer = std::function<void()>;
 		private:
-			eproperty::Interface& m_interfaceLink;
+			eproperty::Interface* m_interfaceLink;
+			Observer m_setObserver;
 			std::string m_name;
 		public:
-			Property(eproperty::Interface& _paramInterfaceLink, const std::string& _name);
+			Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name);
 			virtual ~Property() = default;
+		protected:
+			void setObserver(eproperty::Property::Observer _setObs);
+		public:
 			/**
 			 * @brief call main class that PropertyChange
 			 */
@@ -28,9 +35,7 @@ namespace eproperty {
 			 * @brief Get the name of the Property.
 			 * @return The name of the Property
 			 */
-			virtual std::string getName() const {
-				return m_name;
-			};
+			virtual std::string getName() const;
 			/**
 			 * @brief Description of the Propertys.
 			 * @return Descriptive information of the Property (for remote UI).
@@ -84,15 +89,5 @@ namespace eproperty {
 			template<class TYPE>
 			bool operator> (const TYPE& _obj) const = delete;
 	};
-	class Ref {
-		public:
-			const Property* m_ref;
-			Ref(const Property* _ref) :
-			  m_ref(_ref) {
-				// nothing to do ...
-			}
-	};
-	bool operator==(const Ref& _obj, const Property& _obj2) noexcept;
-	bool operator==(const Property& _obj2, const Ref& _obj) noexcept;
 }
 

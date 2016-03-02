@@ -11,22 +11,28 @@
 #include <eproperty/Property.h>
 
 
-eproperty::Property::Property(eproperty::Interface& _paramInterfaceLink, const std::string& _name) :
+eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name) :
   m_interfaceLink(_paramInterfaceLink),
+  m_setObserver(),
   m_name(_name) {
 	// add a reference on the current Property ...
-	m_interfaceLink.propertyAdd(this);
+	if (m_interfaceLink != nullptr) {
+		m_interfaceLink->propertyAdd(this);
+	}
+}
+
+void eproperty::Property::setObserver(eproperty::Property::Observer _setObs) {
+	m_setObserver = _setObs;
+}
+
+std::string eproperty::Property::getName() const {
+	return m_name;
 }
 
 void eproperty::Property::notifyChange() const {
-	m_interfaceLink.onPropertyChangeValue(eproperty::Ref(this));
-}
-
-bool eproperty::operator==(const eproperty::Ref& _obj, const eproperty::Property& _obj2) noexcept {
-	return &_obj2 == _obj.m_ref;
-}
-
-bool eproperty::operator==(const eproperty::Property& _obj2, const eproperty::Ref& _obj) noexcept {
-	return &_obj2 == _obj.m_ref;
+	if (m_setObserver != nullptr) {
+		m_setObserver();
+	}
+	//m_interfaceLink.onPropertyChangeValue();
 }
 
