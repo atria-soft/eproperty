@@ -8,16 +8,14 @@
 #pragma once
 
 #include <eproperty/Interface.h>
-#include <eproperty/Property.h>
+#include <eproperty/Value.h>
 #include <typeinfo>
 
 namespace eproperty {
-	template<typename TYPE> class Range : public Property {
+	template<typename TYPE> class Range : public Value<TYPE> {
 		private:
-			TYPE m_value; //!< Current value.
 			TYPE m_min; //!< Minimum value.
 			TYPE m_max; //!< Maximum value.
-			TYPE m_default; //!< Default value.
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
@@ -37,121 +35,47 @@ namespace eproperty {
 			      const TYPE& _max,
 			      const std::string& _description = "",
 			      void (CLASS_TYPE::*_setObs)()=nullptr) :
-			  Property(_owner, _name),
-			  m_value(_defaultValue),
+			  eproperty::Value<TYPE>(_owner, _name, _defaultValue, _description, _setObs),
 			  m_min(_min),
-			  m_max(_max),
-			  m_default(_defaultValue) {
+			  m_max(_max) {
 				if (m_min > m_max) {
 					//EPROPERTY_CRITICAL("min > max...");
-				}
-				if (_setObs != nullptr) {
-					setObserver([=](){(*_owner.*_setObs)();});
 				}
 			};
 			/**
 			 * @brief Destructor.
 			 */
 			virtual ~Range() = default;
-			// herited methode
-			virtual std::string getPropertyType() const {
+			std::string getPropertyType() const override {
 				return "eproperty::Range";
 			}
-			// herited methode
-			virtual std::string getType() const {
-				return typeid(TYPE).name();
-			}
-			// herited methode
-			virtual std::string getString() const {
-				return getValueSpecific(m_value);
-			};
-			// herited methode
-			virtual std::string getDefault() const {
-				return getValueSpecific(m_default);
-			};
-			// herited methode
-			virtual void setString(const std::string& _newVal) {
+			void setString(const std::string& _newVal) override {
 				TYPE val;
 				// when you want to set an element in parameter you will implement the function template std::from_string
 				etk::from_string(val, _newVal);
 				set(val);
 			}
-			// herited methode
-			virtual std::string getInfo() const {
-				return getType() + " default=" + getDefault();
-			}
-			// herited methode
-			virtual bool isDefault() const {
-				return m_value == m_default;
-			}
-			// herited methode
-			virtual void setDefault() {
-				set(m_default);
+			std::string getInfo() const override {
+				return eproperty::Value<TYPE>::getType() + " default=" + eproperty::Value<TYPE>::getDefault();
 			}
 		public:
-			/**
-			 * @brief Get the value of the current parameter.
-			 * @return The reference value
-			 */
-			const inline TYPE& get() const {
-				return m_value;
-			};
 			/**
 			 * @brief Set a new value for this parameter
 			 * @param[in] newVal New value to set (set the nearest value if range is set)
 			 */
-			void set(const TYPE& _newVal) {
+			void set(const TYPE& _newVal) override {
 				if (m_min == m_max) {
-					if (_newVal != m_value) {
-						m_value = _newVal;
-						notifyChange();
+					if (_newVal != eproperty::Value<TYPE>::m_value) {
+						eproperty::Value<TYPE>::m_value = _newVal;
+						eproperty::Value<TYPE>::notifyChange();
 					}
 				} else {
 					TYPE newVal = std::avg(m_min, _newVal, m_max);
-					if (newVal != m_value) {
-						m_value = newVal;
-						notifyChange();
+					if (newVal != eproperty::Value<TYPE>::m_value) {
+						eproperty::Value<TYPE>::m_value = newVal;
+						eproperty::Value<TYPE>::notifyChange();
 					}
 				}
-			}
-			/**
-			 * @brief Set the value of the current parameter (no check (for internal set with no check).
-			 * @note For performence, this function must be inline
-			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
-			 * TODO: Do it better ... compile check
-			 * @param[in] newVal New value to set 
-			 */
-			inline void setDirect(const TYPE& _newVal) {
-				m_value = _newVal;
-			};
-			/**
-			 * @brief Get the value of the current parameter (no check (for internal set with no check).
-			 * @note For performence, this function must be inline
-			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
-			 * TODO: Do it better ... compile check
-			 * @return a reference on the value
-			 */
-			TYPE& getDirect() {
-				return m_value;
-			}
-		private:
-			/**
-			 * @brief Get the string of the specify value.
-			 * @return convetion of the velue in string.
-			 */
-			std::string getValueSpecific(const TYPE& _valueRequested) const {
-				return etk::to_string(_valueRequested);
-			}
-		public:
-			const Range<TYPE>& operator= (const TYPE& _newVal) = delete;
-			operator const TYPE&() const {
-				return m_value;
-			}
-			const TYPE& operator*() const noexcept {
-				return m_value;
-			}
-			const TYPE* operator->() const noexcept {
-				return &m_value;
 			}
 	};
 	
