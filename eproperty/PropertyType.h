@@ -9,29 +9,10 @@
 
 #include <eproperty/Interface.h>
 #include <eproperty/Property.h>
-#include <eproperty/VariantBase.h>
 #include <eproperty/debug.h>
 
 
 namespace eproperty {
-	template<typename TYPE> class VariantSpecify : public eproperty::VariantBase {
-		private:
-			TYPE m_value;
-		public:
-			VariantSpecify() :
-			  eproperty::VariantBase(uint64_t(typeid(TYPE))),
-			  m_value() {
-				
-			}
-			VariantSpecify(TYPE&& _value) :
-			  eproperty::VariantBase(uint64_t(typeid(TYPE))),
-			  m_value(_value) {
-				
-			}
-			const TYPE& get() {
-				return m_value;
-			}
-	};
 	template<typename TYPE> class PropertyType : public Property {
 		protected:
 			TYPE m_value; //!< Current value.
@@ -102,15 +83,6 @@ namespace eproperty {
 					notifyChange();
 				}
 			}
-			void setVariant(eproperty::VariantBase* _variantValue) override {
-				eproperty::VariantSpecify<TYPE>* value = dynamic_cast<eproperty::VariantSpecify<TYPE>*>(_variantValue);
-				if (value == nullptr) {
-					EPROPERTY_ERROR("Can not set property : '" << getName() << "' wrong variant type ...");
-					return;
-				}
-				// TODO : Check range ...
-				setDirect(value->get());
-			}
 			/**
 			 * @brief Set the value of the current parameter (no check (for internal set with no check).
 			 * @note For performence, this function must be inline
@@ -119,6 +91,9 @@ namespace eproperty {
 			 * @param[in] newVal New value to set 
 			 */
 			inline void setDirect(const TYPE& _newVal) {
+				m_value = _newVal;
+			}
+			virtual void setDirectCheck(const TYPE& _newVal) {
 				m_value = _newVal;
 			}
 			/**

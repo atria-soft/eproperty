@@ -45,6 +45,26 @@ namespace eproperty {
 				}
 				m_list.insert(std::make_pair(_name, _value));
 			}
+			void remove(const std::string& _name) {
+				auto it = m_list.find(_name);
+				if (it != m_list.end()) {
+					m_list.erase(it);
+					return;
+				}
+			}
+			void rename(const std::string& _nameOld, const std::string& _nameNew) {
+				//get old value
+				TYPE value;
+				auto it = m_list.find(_nameOld);
+				if (it != m_list.end()) {
+					value = it->second;
+				} else {
+					EPROPERTY_ERROR("paramList rename can not be done '" << _nameOld << "' in '" << _nameNew << "' parameter name does not exist");
+					return;
+				}
+				remove(_nameOld);
+				add(value, _nameNew);
+			}
 			std::string getPropertyType() const override {
 				return "eproperty::List";
 			}
@@ -81,6 +101,18 @@ namespace eproperty {
 					if (it.second == _newVal) {
 						eproperty::PropertyType<TYPE>::m_value = it.second;
 						eproperty::PropertyType<TYPE>::notifyChange();
+						return;
+					}
+				}
+				EPROPERTY_WARNING("paramList value=??? is not un the list ... ==> no change");
+			}
+			void setDirectCheck(const TYPE& _newVal) override {
+				if (_newVal == eproperty::PropertyType<TYPE>::m_value) {
+					return;
+				}
+				for (auto &it : m_list) {
+					if (it.second == _newVal) {
+						eproperty::PropertyType<TYPE>::m_value = it.second;
 						return;
 					}
 				}

@@ -77,6 +77,18 @@ namespace eproperty {
 					}
 				}
 			}
+			void setDirectCheck(const TYPE& _newVal) override {
+				if (m_min == m_max) {
+					if (_newVal != eproperty::Value<TYPE>::m_value) {
+						eproperty::Value<TYPE>::m_value = _newVal;
+					}
+				} else {
+					TYPE newVal = std::avg(m_min, _newVal, m_max);
+					if (newVal != eproperty::Value<TYPE>::m_value) {
+						eproperty::Value<TYPE>::m_value = newVal;
+					}
+				}
+			}
 	};
 	
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Range<TYPE>& _obj) {

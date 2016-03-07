@@ -76,6 +76,7 @@ namespace eproperty {
 			 * @return pointer on the property.
 			 */
 			eproperty::Property* getPropertyRaw(const size_t& _id) const;
+			eproperty::Property* getPropertyRaw(const std::string _name) const;
 	};
 }
 

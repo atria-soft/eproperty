@@ -21,8 +21,14 @@ eproperty::Interface::~Interface() {
 // note this pointer is not allocated and not free at the end of the class
 void eproperty::Interface::propertyAdd(eproperty::Property* _pointerOnProperty) {
 	if (_pointerOnProperty == nullptr) {
-		EPROPERTY_ERROR("Try to link a nullptr propertys");
+		EPROPERTY_ERROR("Try to link a nullptr properties");
 		return;
+	}
+	for (auto &it : m_list) {
+		if(    it != nullptr
+		    && it->getName() == _pointerOnProperty->getName()) {
+			EPROPERTY_CRITICAL("2 property can not have the same name ... ==> generate runtime error");
+		}
 	}
 	m_list.push_back(_pointerOnProperty);
 }
@@ -105,3 +111,11 @@ eproperty::Property* eproperty::Interface::getPropertyRaw(const size_t& _id) con
 	return m_list[_id];
 }
 
+eproperty::Property* eproperty::Interface::getPropertyRaw(const std::string _name) const {
+	for (auto &it : m_list) {
+		if(it->getName() == _name) {
+			return it;
+		}
+	}
+	return nullptr;
+}

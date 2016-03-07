@@ -8,7 +8,6 @@
 #pragma once
 
 #include <eproperty/Interface.h>
-#include <eproperty/VariantBase.h>
 #include <string>
 #include <typeinfo>
 #include <functional>
@@ -76,7 +75,6 @@ namespace eproperty {
 			 * @brief Reset the value to the default value.
 			 */
 			virtual void setDefault() = 0;
-			virtual void setVariant(eproperty::VariantBase* _variantValue) = 0;
 		public:
 			template<class TYPE>
 			bool operator== (const TYPE& _obj) const = delete;
