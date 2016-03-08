@@ -9,6 +9,6 @@
 #include <eproperty/debug.h>
 
 int32_t eproperty::getLogId() {
-	static int32_t g_val = etk::log::registerInstance("eproperty");
+	static int32_t g_val = elog::registerInstance("eproperty");
 	return g_val;
 }

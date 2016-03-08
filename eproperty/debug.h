@@ -7,12 +7,12 @@
  */
 #pragma once
 
-#include <etk/log.h>
+#include <elog/log.h>
 
 namespace eproperty {
 	int32_t getLogId();
 };
-#define EPROPERTY_BASE(info,data)     TK_LOG_BASE(eproperty::getLogId(),info,data)
+#define EPROPERTY_BASE(info,data)     ELOG_BASE(eproperty::getLogId(),info,data)
 
 #define EPROPERTY_PRINT(data)         EPROPERTY_BASE(-1, data)
 #define EPROPERTY_CRITICAL(data)      EPROPERTY_BASE(1, data)
