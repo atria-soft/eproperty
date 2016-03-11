@@ -79,10 +79,6 @@ void eproperty::Interface::propertyDisplay(bool _changeOnly) const {
 	}
 }
 
-void eproperty::Interface::onPropertyChangeValue() {
-	// nothing to do ...
-}
-
 std::map<std::string, std::string> eproperty::Interface::propertyGetAll(bool _notIfDefault) const {
 	std::map<std::string, std::string> out;
 	for (auto &it : m_list) {

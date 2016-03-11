@@ -61,9 +61,6 @@ namespace eproperty {
 			 * @return map on the propertys
 			 */
 			std::map<std::string, std::string> propertyGetAll(bool _notIfDefault=true) const;
-			
-			// deprecated
-			virtual void onPropertyChangeValue();
 		public:
 			/**
 			 * @brief Get count of propertys.
@@ -72,10 +69,12 @@ namespace eproperty {
 			size_t getPropertyCount() const;
 			/**
 			 * @brief Get name of a propertys.
-			 * @return _id Id of the property.
+			 * @param[in] _id Id of the property.
+			 * @param[in] _name name of the property.
 			 * @return pointer on the property.
 			 */
 			eproperty::Property* getPropertyRaw(const size_t& _id) const;
+			//! @previous
 			eproperty::Property* getPropertyRaw(const std::string _name) const;
 	};
 }
