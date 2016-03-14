@@ -29,7 +29,7 @@ def create(target, module_name):
 	my_module = module.Module(__file__, module_name, get_type())
 	my_module.add_src_file([
 		'test/main.cpp',
-		'test/declareSignals.cpp',
+		'test/declareProperties.cpp',
 		'test/test_list.cpp',
 		'test/test_range.cpp',
 		'test/test_value.cpp'
