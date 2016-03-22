@@ -11,8 +11,11 @@
 #include <map>
 #include <typeinfo>
 
+#undef __class__
+#define __class__ "List<T>"
+
 namespace eproperty {
-	template<typename TYPE> class List : public PropertyType<TYPE> {
+	template<class TYPE> class List : public PropertyType<TYPE> {
 		private:
 			std::map<std::string, TYPE> m_list; //!< pointer on the list of all elements.
 		public:
@@ -47,9 +50,29 @@ namespace eproperty {
 			}
 			void remove(const std::string& _name) {
 				auto it = m_list.find(_name);
+				bool firstValue = false;
+				bool firstDefault = false;
 				if (it != m_list.end()) {
+					if (it->second == eproperty::PropertyType<TYPE>::m_value) {
+						EPROPERTY_ERROR("property value='" << it->first << "' has been removed and this value was set ... change it before removing value to remove this error");
+						firstValue = true;
+					}
+					if (it->second == eproperty::PropertyType<TYPE>::m_default) {
+						EPROPERTY_ERROR("property default='" << it->first << "' has been removed and this value was set ... change it before removing value to remove this error");
+						firstDefault = true;
+					}
 					m_list.erase(it);
 					return;
+				}
+				if (m_list.size() == 0) {
+					EPROPERTY_INFO("property All value removed ==> can not change default and value");
+					return;
+				}
+				if (firstDefault == true) {
+					eproperty::PropertyType<TYPE>::m_default = m_list.begin()->second;
+				}
+				if (firstValue == true) {
+					eproperty::PropertyType<TYPE>::m_value = m_list.begin()->second;
 				}
 			}
 			void rename(const std::string& _nameOld, const std::string& _nameNew) {
@@ -88,6 +111,13 @@ namespace eproperty {
 					list += it.first + "/";
 				}
 				return list + "]";
+			}
+			std::vector<std::string> getListValue() const override {
+				std::vector<std::string> out;
+				for (auto &it : m_list) {
+					out.push_back(it.first);
+				}
+				return out;
 			}
 			/**
 			 * @brief Set the value of the current parameter.
@@ -139,3 +169,6 @@ namespace eproperty {
 	}
 }
 
+
+#undef __class__
+#define __class__ nullptr

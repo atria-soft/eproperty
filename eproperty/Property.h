@@ -75,6 +75,13 @@ namespace eproperty {
 			 * @brief Reset the value to the default value.
 			 */
 			virtual void setDefault() = 0;
+			/**
+			 * @brief Specific for eproperty::List to get all the possible values
+			 * @return Descriptive information of the Property (for remote UI).
+			 */
+			virtual std::vector<std::string> getListValue() const {
+				return std::vector<std::string>();
+			}
 		public:
 			template<class TYPE>
 			bool operator== (const TYPE& _obj) const = delete;

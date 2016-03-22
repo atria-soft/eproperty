@@ -11,9 +11,11 @@
 #include <eproperty/Property.h>
 #include <eproperty/debug.h>
 
+#undef __class__
+#define __class__ "PropertyType<T>"
 
 namespace eproperty {
-	template<typename TYPE> class PropertyType : public Property {
+	template<class TYPE> class PropertyType : public Property {
 		protected:
 			TYPE m_value; //!< Current value.
 			TYPE m_default; //!< Default value.
@@ -63,6 +65,9 @@ namespace eproperty {
 			}
 			void setDefault() override {
 				set(m_default);
+			}
+			virtual void changeDefault(const TYPE& _newDefault) {
+				m_default = _newDefault;
 			}
 		public:
 			/**
@@ -126,3 +131,5 @@ namespace eproperty {
 	}
 }
 
+#undef __class__
+#define __class__ nullptr

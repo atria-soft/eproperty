@@ -8,10 +8,16 @@
 #pragma once
 
 #include <eproperty/PropertyType.h>
+#include <etk/types.h>
+#include <etk/math/Vector2D.h>
+#include <etk/math/Vector3D.h>
+#include <etk/Color.h>
 
+#undef __class__
+#define __class__ "Value<T>"
 
 namespace eproperty {
-	template<typename TYPE> class Value : public PropertyType<TYPE> {
+	template<class TYPE> class Value : public PropertyType<TYPE> {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
@@ -35,15 +41,8 @@ namespace eproperty {
 			 * @brief Get the string of the specify value.
 			 * @return convetion of the velue in string.
 			 */
-			std::string getValueSpecific(const TYPE& _valueRequested) const override {
-				return etk::to_string(_valueRequested);
-			}
-			void setString(const std::string& _newVal) override {
-				// when you want to set an element in parameter you will implement the function template std::from_string
-				etk::from_string(eproperty::PropertyType<TYPE>::m_value, _newVal);
-				// TODO : Do it better ...
-				eproperty::PropertyType<TYPE>::notifyChange();
-			}
+			std::string getValueSpecific(const TYPE& _valueRequested) const override;
+			void setString(const std::string& _newVal) override;
 	};
 	
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<TYPE>& _obj) {
@@ -51,4 +50,8 @@ namespace eproperty {
 		return _os;
 	}
 }
+
+#undef __class__
+#define __class__ nullptr
+
 

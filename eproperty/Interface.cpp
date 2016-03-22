@@ -10,6 +10,9 @@
 #include <eproperty/List.h>
 #include <eproperty/Property.h>
 
+#undef __class__
+#define __class__ "Interface"
+
 eproperty::Interface::Interface() {
 	
 }

@@ -33,6 +33,8 @@ def create(target, module_name):
 		'eproperty/debug.cpp',
 		'eproperty/Property.cpp',
 		'eproperty/Interface.cpp',
+		'eproperty/details/Range.cpp',
+		'eproperty/details/Value.cpp',
 		])
 	my_module.add_header_file([
 		'eproperty/debug.h',
@@ -42,6 +44,8 @@ def create(target, module_name):
 		'eproperty/PropertyType.h',
 		'eproperty/Range.h',
 		'eproperty/List.h',
+		'eproperty/details/Range.hxx',
+		'eproperty/details/Value.hxx',
 		])
 	my_module.add_module_depend(['etk'])
 	my_module.add_path(tools.get_current_path(__file__))

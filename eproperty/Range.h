@@ -11,8 +11,11 @@
 #include <eproperty/Value.h>
 #include <typeinfo>
 
+#undef __class__
+#define __class__ "Range<T>"
+
 namespace eproperty {
-	template<typename TYPE> class Range : public Value<TYPE> {
+	template<class TYPE> class Range : public Value<TYPE> {
 		private:
 			TYPE m_min; //!< Minimum value.
 			TYPE m_max; //!< Maximum value.
@@ -46,49 +49,12 @@ namespace eproperty {
 			 * @brief Destructor.
 			 */
 			virtual ~Range() = default;
-			std::string getPropertyType() const override {
-				return "eproperty::Range";
-			}
-			void setString(const std::string& _newVal) override {
-				TYPE val;
-				// when you want to set an element in parameter you will implement the function template std::from_string
-				etk::from_string(val, _newVal);
-				set(val);
-			}
-			std::string getInfo() const override {
-				return eproperty::Value<TYPE>::getType() + " default=" + eproperty::Value<TYPE>::getDefault();
-			}
+			std::string getPropertyType() const override;
+			void setString(const std::string& _newVal) override;
+			std::string getInfo() const override;
 		public:
-			/**
-			 * @brief Set a new value for this parameter
-			 * @param[in] newVal New value to set (set the nearest value if range is set)
-			 */
-			void set(const TYPE& _newVal) override {
-				if (m_min == m_max) {
-					if (_newVal != eproperty::Value<TYPE>::m_value) {
-						eproperty::Value<TYPE>::m_value = _newVal;
-						eproperty::Value<TYPE>::notifyChange();
-					}
-				} else {
-					TYPE newVal = std::avg(m_min, _newVal, m_max);
-					if (newVal != eproperty::Value<TYPE>::m_value) {
-						eproperty::Value<TYPE>::m_value = newVal;
-						eproperty::Value<TYPE>::notifyChange();
-					}
-				}
-			}
-			void setDirectCheck(const TYPE& _newVal) override {
-				if (m_min == m_max) {
-					if (_newVal != eproperty::Value<TYPE>::m_value) {
-						eproperty::Value<TYPE>::m_value = _newVal;
-					}
-				} else {
-					TYPE newVal = std::avg(m_min, _newVal, m_max);
-					if (newVal != eproperty::Value<TYPE>::m_value) {
-						eproperty::Value<TYPE>::m_value = newVal;
-					}
-				}
-			}
+			void set(const TYPE& _newVal) override;
+			void setDirectCheck(const TYPE& _newVal) override;
 	};
 	
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Range<TYPE>& _obj) {
@@ -97,3 +63,6 @@ namespace eproperty {
 	}
 }
 
+
+#undef __class__
+#define __class__ nullptr
