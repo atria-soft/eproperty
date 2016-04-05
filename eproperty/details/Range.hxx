@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -8,9 +8,6 @@
 #pragma once
 
 #include <eproperty/Range.h>
-
-#undef __class__
-#define __class__ "Range<T>"
 
 template<class TYPE>
 std::string eproperty::Range<TYPE>::getPropertyType() const {

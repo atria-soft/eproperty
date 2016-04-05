@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -11,10 +11,10 @@
 #include <eproperty/Property.h>
 #include <eproperty/debug.h>
 
-#undef __class__
-#define __class__ "PropertyType<T>"
-
 namespace eproperty {
+	/**
+	 * @brief Template base of the property (have a generic set and get for string)
+	 */
 	template<class TYPE> class PropertyType : public Property {
 		protected:
 			TYPE m_value; //!< Current value.
@@ -66,6 +66,10 @@ namespace eproperty {
 			void setDefault() override {
 				set(m_default);
 			}
+			/**
+			 * @brief Set new default value on the property
+			 * @param[in] _newDefault New value to set
+			 */
 			virtual void changeDefault(const TYPE& _newDefault) {
 				m_default = _newDefault;
 			}
@@ -80,7 +84,7 @@ namespace eproperty {
 			};
 			/**
 			 * @brief Set a new value for this parameter
-			 * @param[in] newVal New value to set (set the nearest value if range is set)
+			 * @param[in] _newVal New value to set (set the nearest value if range is set)
 			 */
 			virtual void set(const TYPE& _newVal) {
 				if (_newVal != m_value) {
@@ -93,11 +97,16 @@ namespace eproperty {
 			 * @note For performence, this function must be inline
 			 * @note Only use by the owner of the property (can not be check on compile time for now ...)
 			 * TODO: Do it better ... compile check
-			 * @param[in] newVal New value to set 
+			 * @param[in] _newVal New value to set 
 			 */
 			inline void setDirect(const TYPE& _newVal) {
 				m_value = _newVal;
 			}
+			/**
+			 * @brief Set the value of the current parameter (check range and ... if needed).
+			 * @note Only use by the owner of the property/
+			 * @param[in] _newVal New value to set
+			 */
 			virtual void setDirectCheck(const TYPE& _newVal) {
 				m_value = _newVal;
 			}
@@ -111,25 +120,40 @@ namespace eproperty {
 			TYPE& getDirect() {
 				return m_value;
 			}
+			/**
+			 * @brief Get the string of the specify value.
+			 * @param[in] _valueRequested Value to convert in string
+			 * @return convertion of the value in string.
+			 */
 			virtual std::string getValueSpecific(const TYPE& _valueRequested) const = 0;
 		public:
+			/**
+			 * @brief Const cast the property in the Type of the data
+			 * @return Const reference on the value.
+			 */
 			operator const TYPE&() const {
 				return m_value;
 			}
+			/**
+			 * @brief Get the property Value
+			 * @return Const reference on the value.
+			 */
 			const TYPE& operator *() const noexcept {
 				return m_value;
 			}
+			/**
+			 * @brief Get the property Value
+			 * @return Const reference on the value.
+			 */
 			const TYPE* operator->() const noexcept {
 				return &m_value;
 			}
+			//! @not_in_doc
 			const PropertyType<TYPE>& operator= (const TYPE& _newVal) = delete;
 	};
-	
+	//! @not_in_doc
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::PropertyType<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}
 }
-
-#undef __class__
-#define __class__ nullptr

@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -17,7 +17,7 @@ eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const s
   m_name(_name) {
 	// add a reference on the current Property ...
 	if (m_interfaceLink != nullptr) {
-		m_interfaceLink->propertyAdd(this);
+		m_interfaceLink->properties.add(this);
 	}
 }
 

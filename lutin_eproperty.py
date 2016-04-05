@@ -32,7 +32,7 @@ def create(target, module_name):
 	my_module.add_src_file([
 		'eproperty/debug.cpp',
 		'eproperty/Property.cpp',
-		'eproperty/Interface.cpp',
+		'eproperty/InterfaceData.cpp',
 		'eproperty/details/Range.cpp',
 		'eproperty/details/Value.cpp',
 		])
@@ -40,6 +40,7 @@ def create(target, module_name):
 		'eproperty/debug.h',
 		'eproperty/Value.h',
 		'eproperty/Interface.h',
+		'eproperty/InterfaceData.h',
 		'eproperty/Property.h',
 		'eproperty/PropertyType.h',
 		'eproperty/Range.h',

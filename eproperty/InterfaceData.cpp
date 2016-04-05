@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -9,20 +9,18 @@
 #include <eproperty/debug.h>
 #include <eproperty/List.h>
 #include <eproperty/Property.h>
+#include <eproperty/InterfaceData.h>
 
-#undef __class__
-#define __class__ "Interface"
-
-eproperty::Interface::Interface() {
+eproperty::InterfaceData::InterfaceData() {
 	
 }
 
-eproperty::Interface::~Interface() {
-	propertyClean();
+eproperty::InterfaceData::~InterfaceData() {
+	clean();
 }
 
 // note this pointer is not allocated and not free at the end of the class
-void eproperty::Interface::propertyAdd(eproperty::Property* _pointerOnProperty) {
+void eproperty::InterfaceData::add(eproperty::Property* _pointerOnProperty) {
 	if (_pointerOnProperty == nullptr) {
 		EPROPERTY_ERROR("Try to link a nullptr properties");
 		return;
@@ -36,14 +34,14 @@ void eproperty::Interface::propertyAdd(eproperty::Property* _pointerOnProperty) 
 	m_list.push_back(_pointerOnProperty);
 }
 
-void eproperty::Interface::propertyClean() {
+void eproperty::InterfaceData::clean() {
 	// remove all pointer on these propertys
 	m_list.clear();
 }
 
 // Note no lock is needed at this level, because the lock is done is the upper elements ...
 // the property set might be done with a pool of property, allone, the overhed is bigger ...
-bool eproperty::Interface::propertySet(const std::string& _property, const std::string& _value) {
+bool eproperty::InterfaceData::set(const std::string& _property, const std::string& _value) {
 	for (auto &it : m_list) {
 		if(    it != nullptr
 		    && it->getName() == _property) {
@@ -55,7 +53,7 @@ bool eproperty::Interface::propertySet(const std::string& _property, const std::
 	return false;
 }
 
-std::string eproperty::Interface::propertyGet(const std::string& _property) const {
+std::string eproperty::InterfaceData::get(const std::string& _property) const {
 	for (auto &it : m_list) {
 		if(    it != nullptr
 		    && it->getName() == _property) {
@@ -65,7 +63,7 @@ std::string eproperty::Interface::propertyGet(const std::string& _property) cons
 	return "???";
 }
 
-void eproperty::Interface::propertyDisplay(bool _changeOnly) const {
+void eproperty::InterfaceData::display(bool _changeOnly) const {
 	EPROPERTY_INFO("    Object propertys:");
 	for (auto &it : m_list) {
 		if(it != nullptr) {
@@ -82,7 +80,7 @@ void eproperty::Interface::propertyDisplay(bool _changeOnly) const {
 	}
 }
 
-std::map<std::string, std::string> eproperty::Interface::propertyGetAll(bool _notIfDefault) const {
+std::map<std::string, std::string> eproperty::InterfaceData::getAll(bool _notIfDefault) const {
 	std::map<std::string, std::string> out;
 	for (auto &it : m_list) {
 		if(it != nullptr) {
@@ -98,11 +96,11 @@ std::map<std::string, std::string> eproperty::Interface::propertyGetAll(bool _no
 }
 
 
-size_t eproperty::Interface::getPropertyCount() const {
+size_t eproperty::InterfaceData::size() const {
 	return m_list.size();
 }
 
-eproperty::Property* eproperty::Interface::getPropertyRaw(const size_t& _id) const {
+eproperty::Property* eproperty::InterfaceData::getRaw(const size_t& _id) const {
 	if (_id >= m_list.size()) {
 		EPROPERTY_ERROR("Wrong ID for property list. " << _id << " >= " << m_list.size());
 		return nullptr;
@@ -110,7 +108,7 @@ eproperty::Property* eproperty::Interface::getPropertyRaw(const size_t& _id) con
 	return m_list[_id];
 }
 
-eproperty::Property* eproperty::Interface::getPropertyRaw(const std::string _name) const {
+eproperty::Property* eproperty::InterfaceData::getRaw(const std::string _name) const {
 	for (auto &it : m_list) {
 		if(it->getName() == _name) {
 			return it;
@@ -118,3 +116,4 @@ eproperty::Property* eproperty::Interface::getPropertyRaw(const std::string _nam
 	}
 	return nullptr;
 }
+

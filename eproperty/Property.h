@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -12,19 +12,38 @@
 #include <typeinfo>
 #include <functional>
 
+/**
+ * @brief eproperty global interface for all property implementation
+ */
 namespace eproperty {
 	class Ref;
+	/**
+	 * @brief Base of the property With all generic element needed
+	 */
 	class Property {
 		public:
-			using Observer = std::function<void()>;
+			using Observer = std::function<void()>; //!< Local main object observer of changing value of the property
 		private:
-			eproperty::Interface* m_interfaceLink;
-			Observer m_setObserver;
-			std::string m_name;
+			eproperty::Interface* m_interfaceLink; //!< Base interface class to group all the property
+			Observer m_setObserver; //!< Observer of the changing value
+			std::string m_name; //!< Name of the property
 		public:
+			/**
+			 * @brief Basic property elements
+			 * @param[in] _paramInterfaceLink Link on the esignal::Interface class to register parameter (can be nullptr)
+			 * @param[in] _name Name of the parameter (must be unique if _paramInterfaceLink is define)
+			 */
 			Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name);
+			/**
+			 * @brief Virtualize the destructor
+			 * @internal
+			 */
 			virtual ~Property() = default;
 		protected:
+			/**
+			 * @brief Set the change observer of the property
+			 * @param[in] _setObs New observer of the property
+			 */
 			void setObserver(eproperty::Property::Observer _setObs);
 		public:
 			/**
@@ -83,16 +102,22 @@ namespace eproperty {
 				return std::vector<std::string>();
 			}
 		public:
+			//! @not_in_doc
 			template<class TYPE>
 			bool operator== (const TYPE& _obj) const = delete;
+			//! @not_in_doc
 			template<class TYPE>
 			bool operator!= (const TYPE& _obj) const = delete;
+			//! @not_in_doc
 			template<class TYPE>
 			bool operator<= (const TYPE& _obj) const = delete;
+			//! @not_in_doc
 			template<class TYPE>
 			bool operator>= (const TYPE& _obj) const = delete;
+			//! @not_in_doc
 			template<class TYPE>
 			bool operator< (const TYPE& _obj) const = delete;
+			//! @not_in_doc
 			template<class TYPE>
 			bool operator> (const TYPE& _obj) const = delete;
 	};

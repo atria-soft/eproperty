@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -11,10 +11,11 @@
 #include <eproperty/Value.h>
 #include <typeinfo>
 
-#undef __class__
-#define __class__ "Range<T>"
-
 namespace eproperty {
+	/**
+	 * @brief Range template of the property (limit with a min and a max value)
+	 * @tparam TYPE Tpe of the range value
+	 */
 	template<class TYPE> class Range : public Value<TYPE> {
 		private:
 			TYPE m_min; //!< Minimum value.
@@ -56,13 +57,9 @@ namespace eproperty {
 			void set(const TYPE& _newVal) override;
 			void setDirectCheck(const TYPE& _newVal) override;
 	};
-	
+	//! @not_in_doc
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Range<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}
 }
-
-
-#undef __class__
-#define __class__ nullptr

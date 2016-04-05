@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -8,9 +8,6 @@
 #pragma once
 
 #include <eproperty/Value.h>
-
-#undef __class__
-#define __class__ "Value<T>"
 
 template<class TYPE>
 std::string eproperty::Value<TYPE>::getValueSpecific(const TYPE& _valueRequested) const {
@@ -24,8 +21,3 @@ void eproperty::Value<TYPE>::setString(const std::string& _newVal) {
 	// TODO : Do it better ...
 	eproperty::PropertyType<TYPE>::notifyChange();
 }
-
-
-#undef __class__
-#define __class__ nullptr
-

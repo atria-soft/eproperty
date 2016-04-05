@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -11,8 +11,6 @@
 #include <etk/math/Vector3D.h>
 #include <etk/Color.h>
 
-#undef __class__
-#define __class__ "Range<T>"
 // void generic properties
 template class eproperty::Range<int64_t>;
 template class eproperty::Range<int32_t>;

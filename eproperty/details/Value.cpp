@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -12,8 +12,6 @@
 #include <etk/math/Vector3D.h>
 #include <etk/Color.h>
 
-#undef __class__
-#define __class__ "Value<T>"
 // void generic properties
 template class eproperty::Value<bool>;
 template class eproperty::Value<std::string>;

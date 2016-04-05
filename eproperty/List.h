@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -11,10 +11,10 @@
 #include <map>
 #include <typeinfo>
 
-#undef __class__
-#define __class__ "List<T>"
-
 namespace eproperty {
+	/**
+	 * @brief Set a list of value availlable (for enumeration)
+	 */
 	template<class TYPE> class List : public PropertyType<TYPE> {
 		private:
 			std::map<std::string, TYPE> m_list; //!< pointer on the list of all elements.
@@ -37,9 +37,15 @@ namespace eproperty {
 				
 			};
 			/**
-			 * @brief Destructor.
+			 * @brief virtualisation of Destructor.
 			 */
 			virtual ~List() = default;
+			/**
+			 * @brief Add a value in the list of parameter
+			 * @param[in] _value Value of the string
+			 * @param[in] _name String of the value
+			 * @param[in] _description Description of the parameter value
+			 */
 			void add(const TYPE& _value, const std::string& _name, const std::string& _description = "") {
 				auto it = m_list.find(_name);
 				if (it != m_list.end()) {
@@ -48,6 +54,10 @@ namespace eproperty {
 				}
 				m_list.insert(std::make_pair(_name, _value));
 			}
+			/**
+			 * @brief Remove a value of the element availlable
+			 * @param[in] _name Name of the value to remove
+			 */
 			void remove(const std::string& _name) {
 				auto it = m_list.find(_name);
 				bool firstValue = false;
@@ -75,6 +85,11 @@ namespace eproperty {
 					eproperty::PropertyType<TYPE>::m_value = m_list.begin()->second;
 				}
 			}
+			/**
+			 * @brief Rename a value of the property
+			 * @param[in] _nameOld Old property name to replace
+			 * @param[in] _nameNew New name of the property
+			 */
 			void rename(const std::string& _nameOld, const std::string& _nameNew) {
 				//get old value
 				TYPE value;
@@ -101,9 +116,11 @@ namespace eproperty {
 					return;
 				}
 				EPROPERTY_WARNING("paramList value='" << _newVal << "' is not un the list ... ==> no change");
-				for (auto &it : m_list) {
-					EPROPERTY_VERBOSE("        element : " << it.first);
-				}
+				#ifdef DEBUG
+					for (auto &it : m_list) {
+						EPROPERTY_VERBOSE("        element : " << it.first);
+					}
+				#endif
 			}
 			std::string getInfo() const override {
 				std::string list = "List default=" + getValueSpecific(eproperty::PropertyType<TYPE>::m_default) + " in : [";
@@ -163,12 +180,10 @@ namespace eproperty {
 				return "???";
 			}
 	};
+	//! @not_in_doc
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::List<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}
 }
 
-
-#undef __class__
-#define __class__ nullptr

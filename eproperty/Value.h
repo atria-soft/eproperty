@@ -1,4 +1,4 @@
-/**
+/** @file
  * @author Edouard DUPIN
  * 
  * @copyright 2016, Edouard DUPIN, all right reserved
@@ -13,10 +13,10 @@
 #include <etk/math/Vector3D.h>
 #include <etk/Color.h>
 
-#undef __class__
-#define __class__ "Value<T>"
-
 namespace eproperty {
+	/**
+	 * @brief Simple Value of the property (need to implement fuction etk::from_string<TYPE> to use it)
+	 */
 	template<class TYPE> class Value : public PropertyType<TYPE> {
 		public:
 			/**
@@ -37,21 +37,13 @@ namespace eproperty {
 				
 			}
 		protected:
-			/**
-			 * @brief Get the string of the specify value.
-			 * @return convetion of the velue in string.
-			 */
 			std::string getValueSpecific(const TYPE& _valueRequested) const override;
 			void setString(const std::string& _newVal) override;
 	};
-	
+	//! @not_in_doc
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}
 }
-
-#undef __class__
-#define __class__ nullptr
-
 
