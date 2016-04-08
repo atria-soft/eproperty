@@ -9,6 +9,13 @@
 
 #include <eproperty/Value.h>
 
+
+template<class TYPE>
+eproperty::Value<TYPE>::Value(const TYPE& _defaultValue) :
+  eproperty::PropertyType<TYPE>(_defaultValue) {
+	
+}
+
 template<class TYPE>
 std::string eproperty::Value<TYPE>::getValueSpecific(const TYPE& _valueRequested) const {
 	return etk::to_string(_valueRequested);

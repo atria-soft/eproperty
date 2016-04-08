@@ -20,7 +20,7 @@ namespace eproperty {
 			std::map<std::string, TYPE> m_list; //!< pointer on the list of all elements.
 		public:
 			/**
-			 * @brief Create a parameter with List of element parameter.
+			 * @brief Create a parameter with List of element parameter (nullptr if none).
 			 * @param[in] _owner reference on the parameter lister.
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
@@ -34,6 +34,14 @@ namespace eproperty {
 			     const std::string& _description="",
 			     void (CLASS_TYPE::*_setObs)()=nullptr) :
 			  eproperty::PropertyType<TYPE>(_owner, _name, _defaultValue, _description, _setObs) {
+				
+			};
+			/**
+			 * @brief Create a parameter with List of element parameter (nullptr if none).
+			 * @param[in] _defaultValue Default value of the parameter.
+			 */
+			List(const TYPE& _defaultValue) :
+			  eproperty::PropertyType<TYPE>(_defaultValue) {
 				
 			};
 			/**

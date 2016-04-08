@@ -9,6 +9,19 @@
 
 #include <eproperty/Range.h>
 
+
+template<class TYPE>
+eproperty::Range<TYPE>::Range(const TYPE& _defaultValue,
+                              const TYPE& _min,
+                              const TYPE& _max) :
+  eproperty::Value<TYPE>(_defaultValue),
+  m_min(_min),
+  m_max(_max) {
+	if (m_min > m_max) {
+		//EPROPERTY_CRITICAL("min > max...");
+	}
+}
+
 template<class TYPE>
 std::string eproperty::Range<TYPE>::getPropertyType() const {
 	return "eproperty::Range";

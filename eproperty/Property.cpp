@@ -21,6 +21,13 @@ eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const s
 	}
 }
 
+eproperty::Property::Property() :
+  m_interfaceLink(nullptr),
+  m_setObserver(),
+  m_name("") {
+	
+}
+
 void eproperty::Property::setObserver(eproperty::Property::Observer _setObs) {
 	m_setObserver = _setObs;
 }

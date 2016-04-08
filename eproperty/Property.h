@@ -35,6 +35,10 @@ namespace eproperty {
 			 */
 			Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name);
 			/**
+			 * @brief Basic property elements
+			 */
+			Property();
+			/**
 			 * @brief Virtualize the destructor
 			 * @internal
 			 */
@@ -102,22 +106,52 @@ namespace eproperty {
 				return std::vector<std::string>();
 			}
 		public:
-			//! @not_in_doc
+			/**
+			 * @brief Eguality comparaison operator (REMOVED)
+			 * @param[in] _obj Object to compare
+			 * @return true The current object is identic
+			 * @return false The current object is NOT identic
+			 */
 			template<class TYPE>
 			bool operator== (const TYPE& _obj) const = delete;
-			//! @not_in_doc
+			/**
+			 * @brief IN-Eguality comparaison operator (REMOVED)
+			 * @param[in] _obj Object to compare
+			 * @return true The current object is NOT identic
+			 * @return false The current object is identic
+			 */
 			template<class TYPE>
 			bool operator!= (const TYPE& _obj) const = delete;
-			//! @not_in_doc
+			/**
+			 * @brief Lesser eguality comparaison operator (REMOVED)
+			 * @param[in] _obj Object to compare
+			 * @return true The current object lesser or equal than input object
+			 * @return false The current object greater than input object
+			 */
 			template<class TYPE>
 			bool operator<= (const TYPE& _obj) const = delete;
-			//! @not_in_doc
+			/**
+			 * @brief Greater eguality comparaison operator (REMOVED)
+			 * @param[in] _obj Object to compare
+			 * @return true The current object greater or equal than input object
+			 * @return false The current object lesser than input object
+			 */
 			template<class TYPE>
 			bool operator>= (const TYPE& _obj) const = delete;
-			//! @not_in_doc
+			/**
+			 * @brief Lesser comparaison operator (REMOVED)
+			 * @param[in] _obj Object to compare
+			 * @return true The current object lesser than input object
+			 * @return false The current object greater or equal than input object
+			 */
 			template<class TYPE>
 			bool operator< (const TYPE& _obj) const = delete;
-			//! @not_in_doc
+			/**
+			 * @brief Greater comparaison operator (REMOVED)
+			 * @param[in] _obj Object to compare
+			 * @return true The current object greater than input object
+			 * @return false The current object lesser or equal than input object
+			 */
 			template<class TYPE>
 			bool operator> (const TYPE& _obj) const = delete;
 	};

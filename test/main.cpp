@@ -12,9 +12,6 @@
 #include <test-debug/debug.h>
 #include <gtest/gtest.h>
 
-#undef __class__
-#define __class__	"eproperty-test"
-
 int main(int _argc, const char *_argv[]) {
 	::testing::InitGoogleTest(&_argc, const_cast<char **>(_argv));
 	etk::init(_argc, _argv);

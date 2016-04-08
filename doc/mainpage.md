@@ -1,30 +1,33 @@
 EPROPERTY library                                {#mainpage}
 =================
 
-What is EPROPERTY, and how can I use it?
-----------------------------------------
+@tableofcontents
 
-EPROPERTY, or Ewol signal engine is a simple messaging layer, managing multiple connection and manage disconnection
+What is EPROPERTY:                               {#eproperty_mainpage_what}
+==================
+
+EPROPERTY, or Ewol property interface is a simple property API to set and get generic APIS
 
 EPROPERTY is designed for
   - Expose property on generic class
   - Call class when the parameter change
+  - permit to set value throw string (good for XML configurations)
 
 
-What languages are supported?
------------------------------
+What languages are supported?                    {#eproperty_mainpage_language}
+=============================
 
 EPROPERTY is written in C++.
 
 
-Are there any licensing restrictions?
--------------------------------------
+Are there any licensing restrictions?            {#eproperty_mainpage_license_restriction}
+=====================================
 
 EPROPERTY is **FREE software** and _all sub-library are FREE and staticly linkable !!!_
 
 
-License (APACHE-2.0)
---------------------
+License (APACHE-2.0)                             {#eproperty_mainpage_license}
+====================
 
 Copyright EPROPERTY Edouard DUPIN
 
@@ -39,4 +42,13 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+
+Other pages                              {#eproperty_mainpage_sub_page}
+===========
+
+  - @ref eproperty_build
+  - @ref eproperty_tutorial
+  - [**ewol coding style**](http://atria-soft.github.io/ewol/ewol_coding_style.html)
+
 

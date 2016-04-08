@@ -22,7 +22,7 @@ namespace eproperty {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
-			 * @param[in] _owner Owner of the parameter.
+			 * @param[in] _owner Owner of the parameter (nullptr if none).
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
 			 * @param[in] _description description of the parameter.
@@ -40,6 +40,15 @@ namespace eproperty {
 				if (_setObs != nullptr) {
 					setObserver([=](){(*_owner.*_setObs)();});
 				}
+			}
+			/**
+			 * @brief Create a parameter with a specific type.
+			 * @param[in] _defaultValue Default value of the parameter.
+			 */
+			PropertyType(const TYPE& _defaultValue) :
+			  m_value(_defaultValue),
+			  m_default(_defaultValue) {
+				
 			}
 			/**
 			 * @brief Destructor.
@@ -148,8 +157,12 @@ namespace eproperty {
 			const TYPE* operator->() const noexcept {
 				return &m_value;
 			}
-			//! @not_in_doc
-			const PropertyType<TYPE>& operator= (const TYPE& _newVal) = delete;
+			/**
+			 * @brief Assignation opérator (REMOVED)
+			 * @param _newVal Value to asign
+			 * @return Reference on current object
+			 */
+			PropertyType<TYPE>& operator= (const TYPE& _newVal) = delete;
 	};
 	//! @not_in_doc
 	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::PropertyType<TYPE>& _obj) {

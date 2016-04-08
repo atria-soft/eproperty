@@ -21,7 +21,7 @@ namespace eproperty {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
-			 * @param[in] _owner Owner of the parameter.
+			 * @param[in] _owner Owner of the parameter (nullptr if none).
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
 			 * @param[in] _description description of the parameter.
@@ -36,7 +36,12 @@ namespace eproperty {
 			  eproperty::PropertyType<TYPE>(_owner, _name, _defaultValue, _description, _setObs) {
 				
 			}
-		protected:
+			/**
+			 * @brief Create a parameter with a specific type.
+			 * @param[in] _defaultValue Default value of the parameter.
+			 */
+			Value(const TYPE& _defaultValue);
+		public:
 			std::string getValueSpecific(const TYPE& _valueRequested) const override;
 			void setString(const std::string& _newVal) override;
 	};

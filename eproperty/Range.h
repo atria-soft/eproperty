@@ -23,7 +23,7 @@ namespace eproperty {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
-			 * @param[in] _owner reference on the parameter lister.
+			 * @param[in] _owner reference on the parameter lister (nullptr if none).
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
 			 * @param[in] _min Minumum value.
@@ -46,6 +46,15 @@ namespace eproperty {
 					//EPROPERTY_CRITICAL("min > max...");
 				}
 			};
+			/**
+			 * @brief Create a parameter with a specific type.
+			 * @param[in] _defaultValue Default value of the parameter.
+			 * @param[in] _min Minumum value.
+			 * @param[in] _max Maximum value.
+			 */
+			Range(const TYPE& _defaultValue,
+			      const TYPE& _min,
+			      const TYPE& _max);
 			/**
 			 * @brief Destructor.
 			 */
