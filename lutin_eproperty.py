@@ -28,7 +28,7 @@ def get_version():
 
 def create(target, module_name):
 	my_module = module.Module(__file__, module_name, get_type())
-	my_module.add_extra_compile_flags()
+	my_module.add_extra_flags()
 	my_module.add_src_file([
 		'eproperty/debug.cpp',
 		'eproperty/Property.cpp',
@@ -48,9 +48,9 @@ def create(target, module_name):
 		'eproperty/details/Range.hxx',
 		'eproperty/details/Value.hxx',
 		])
-	my_module.add_module_depend(['etk'])
+	my_module.add_depend(['etk'])
 	my_module.add_path(tools.get_current_path(__file__))
-	my_module.compile_flags('c++', [
+	my_module.add_flag('c++', [
 		"-DEPROPERTY_VERSION=\"\\\"" + tools.version_to_string(get_version()) + "\\\"\""
 		])
 	return my_module

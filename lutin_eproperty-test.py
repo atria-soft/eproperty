@@ -34,6 +34,6 @@ def create(target, module_name):
 		'test/test_range.cpp',
 		'test/test_value.cpp'
 		])
-	my_module.add_module_depend(['eproperty', 'gtest', 'test-debug'])
+	my_module.add_depend(['eproperty', 'gtest', 'test-debug'])
 	return my_module
 
