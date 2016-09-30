@@ -6,9 +6,9 @@
  * @license APACHE v2.0 (see license file)
  */
 
-#include <eproperty/debug.h>
-#include <eproperty/Interface.h>
-#include <eproperty/Property.h>
+#include <eproperty/debug.hpp>
+#include <eproperty/Interface.hpp>
+#include <eproperty/Property.hpp>
 
 
 eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name) :

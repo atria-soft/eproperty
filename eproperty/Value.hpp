@@ -7,11 +7,11 @@
  */
 #pragma once
 
-#include <eproperty/PropertyType.h>
-#include <etk/types.h>
-#include <etk/math/Vector2D.h>
-#include <etk/math/Vector3D.h>
-#include <etk/Color.h>
+#include <eproperty/PropertyType.hpp>
+#include <etk/types.hpp>
+#include <etk/math/Vector2D.hpp>
+#include <etk/math/Vector3D.hpp>
+#include <etk/Color.hpp>
 
 namespace eproperty {
 	/**

@@ -7,8 +7,8 @@
  */
 #pragma once
 
-#include <eproperty/Interface.h>
-#include <eproperty/Value.h>
+#include <eproperty/Interface.hpp>
+#include <eproperty/Value.hpp>
 #include <typeinfo>
 
 namespace eproperty {

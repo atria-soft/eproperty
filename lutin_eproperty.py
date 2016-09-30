@@ -37,14 +37,14 @@ def create(target, module_name):
 		'eproperty/details/Value.cpp',
 		])
 	my_module.add_header_file([
-		'eproperty/debug.h',
-		'eproperty/Value.h',
-		'eproperty/Interface.h',
-		'eproperty/InterfaceData.h',
-		'eproperty/Property.h',
-		'eproperty/PropertyType.h',
-		'eproperty/Range.h',
-		'eproperty/List.h',
+		'eproperty/debug.hpp',
+		'eproperty/Value.hpp',
+		'eproperty/Interface.hpp',
+		'eproperty/InterfaceData.hpp',
+		'eproperty/Property.hpp',
+		'eproperty/PropertyType.hpp',
+		'eproperty/Range.hpp',
+		'eproperty/List.hpp',
 		'eproperty/details/Range.hxx',
 		'eproperty/details/Value.hxx',
 		])

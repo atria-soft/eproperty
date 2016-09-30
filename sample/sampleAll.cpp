@@ -5,22 +5,22 @@
  * 
  * @license APACHE v2.0 (see license file)
  */
-#include <etk/etk.h>
-#include <test-debug/debug.h>
+#include <etk/etk.hpp>
+#include <test-debug/debug.hpp>
 
 //! [eproperty_sample_all]
 
 //! [eproperty_sample_declare_interface]
-#include <eproperty/Interface.h>
+#include <eproperty/Interface.hpp>
 //! [eproperty_sample_declare_interface]
 //! [eproperty_sample_declare_value]
-#include <eproperty/Value.h>
+#include <eproperty/Value.hpp>
 //! [eproperty_sample_declare_value]
 //! [eproperty_sample_declare_list]
-#include <eproperty/List.h>
+#include <eproperty/List.hpp>
 //! [eproperty_sample_declare_list]
 //! [eproperty_sample_declare_range]
-#include <eproperty/Range.h>
+#include <eproperty/Range.hpp>
 //! [eproperty_sample_declare_range]
 
 //! [eproperty_sample_declare_an_enum]

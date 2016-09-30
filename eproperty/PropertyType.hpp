@@ -7,9 +7,9 @@
  */
 #pragma once
 
-#include <eproperty/Interface.h>
-#include <eproperty/Property.h>
-#include <eproperty/debug.h>
+#include <eproperty/Interface.hpp>
+#include <eproperty/Property.hpp>
+#include <eproperty/debug.hpp>
 
 namespace eproperty {
 	/**

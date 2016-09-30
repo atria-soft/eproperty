@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include <eproperty/Interface.h>
+#include <eproperty/Interface.hpp>
 #include <string>
 #include <typeinfo>
 #include <functional>

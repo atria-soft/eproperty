@@ -7,10 +7,10 @@
  */
 #include <eproperty/details/Value.hxx>
 
-#include <etk/types.h>
-#include <etk/math/Vector2D.h>
-#include <etk/math/Vector3D.h>
-#include <etk/Color.h>
+#include <etk/types.hpp>
+#include <etk/math/Vector2D.hpp>
+#include <etk/math/Vector3D.hpp>
+#include <etk/Color.hpp>
 
 // void generic properties
 template class eproperty::Value<bool>;

@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include <eproperty/PropertyType.h>
+#include <eproperty/PropertyType.hpp>
 #include <map>
 #include <typeinfo>
 

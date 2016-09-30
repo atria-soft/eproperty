@@ -6,10 +6,10 @@
  * @license APACHE v2.0 (see license file)
  */
 
-#include <eproperty/debug.h>
-#include <eproperty/List.h>
-#include <eproperty/Property.h>
-#include <eproperty/InterfaceData.h>
+#include <eproperty/debug.hpp>
+#include <eproperty/List.hpp>
+#include <eproperty/Property.hpp>
+#include <eproperty/InterfaceData.hpp>
 
 eproperty::InterfaceData::InterfaceData() {
 	

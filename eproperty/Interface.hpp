@@ -9,7 +9,7 @@
 
 #include <vector>
 #include <map>
-#include <eproperty/InterfaceData.h>
+#include <eproperty/InterfaceData.hpp>
 
 namespace eproperty {
 	/**
