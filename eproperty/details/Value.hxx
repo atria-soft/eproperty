@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include <eproperty/Value.h>
+#include <eproperty/Value.hpp>
 
 
 template<class TYPE>

@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include <eproperty/Range.h>
+#include <eproperty/Range.hpp>
 
 
 template<class TYPE>
