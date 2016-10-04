@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import lutin.module as module
 import lutin.tools as tools
 import lutin.debug as debug
 import os
@@ -26,32 +25,33 @@ def get_maintainer():
 def get_version():
 	return "version.txt"
 
-def create(target, module_name):
-	my_module = module.Module(__file__, module_name, get_type())
+def configure(target, my_module):
 	my_module.add_extra_flags()
 	my_module.add_src_file([
-		'eproperty/debug.cpp',
-		'eproperty/Property.cpp',
-		'eproperty/InterfaceData.cpp',
-		'eproperty/details/Range.cpp',
-		'eproperty/details/Value.cpp',
-		])
+	    'eproperty/debug.cpp',
+	    'eproperty/Property.cpp',
+	    'eproperty/InterfaceData.cpp',
+	    'eproperty/details/Range.cpp',
+	    'eproperty/details/Value.cpp',
+	    ])
 	my_module.add_header_file([
-		'eproperty/debug.hpp',
-		'eproperty/Value.hpp',
-		'eproperty/Interface.hpp',
-		'eproperty/InterfaceData.hpp',
-		'eproperty/Property.hpp',
-		'eproperty/PropertyType.hpp',
-		'eproperty/Range.hpp',
-		'eproperty/List.hpp',
-		'eproperty/details/Range.hxx',
-		'eproperty/details/Value.hxx',
-		])
-	my_module.add_depend(['etk'])
-	my_module.add_path(tools.get_current_path(__file__))
+	    'eproperty/debug.hpp',
+	    'eproperty/Value.hpp',
+	    'eproperty/Interface.hpp',
+	    'eproperty/InterfaceData.hpp',
+	    'eproperty/Property.hpp',
+	    'eproperty/PropertyType.hpp',
+	    'eproperty/Range.hpp',
+	    'eproperty/List.hpp',
+	    'eproperty/details/Range.hxx',
+	    'eproperty/details/Value.hxx',
+	    ])
+	my_module.add_depend([
+	    'etk'
+	    ])
+	my_module.add_path(".")
 	my_module.add_flag('c++', [
-		"-DEPROPERTY_VERSION=\"\\\"" + tools.version_to_string(get_version()) + "\\\"\""
-		])
-	return my_module
+	    "-DEPROPERTY_VERSION=\"\\\"" + tools.version_to_string(get_version()) + "\\\"\""
+	    ])
+	return True
 
