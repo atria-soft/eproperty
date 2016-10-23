@@ -1,0 +1,178 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.12"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>eproperty: Ewol property interface: framework/atria-soft/eproperty/eproperty/Property.hpp Source File</title>
+        <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">eproperty: Ewol property interface 0.1-dev</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Main&nbsp;Page</a></li>
+                        <li><a href="pages.html">Related&nbsp;Pages</a></li>
+                        <li><a href="namespaces.html">Namespaces</a></li>
+                        <li><a href="annotated.html">Classes</a></li>
+                        <li><a href="files.html">Files</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Link-libs<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://HeeroYui.github.io/lutin">lutin</a></li>
+                                <li><a href="http://atria-soft.github.io/ewol">ewol</a></li>
+                                <li><a href="http://atria-soft.github.io/etk">etk</a></li>
+                                <li><a href="http://atria-soft.github.io/ejson">ejson</a></li>
+                                <li><a href="http://atria-soft.github.io/exml">exml</a></li>
+                                <li><a href="http://atria-soft.github.io/esvg">esvg</a></li>
+                                <li><a href="http://atria-soft.github.io/egami">egami</a></li>
+                                <li><a href="http://atria-soft.github.io/gale">gale</a></li>
+                                <li><a href="http://atria-soft.github.io/ege">ege</a></li>
+                                <li><a href="http://atria-soft.github.io/elog">elog</a></li>
+                                <li><a href="http://atria-soft.github.io/ememory">ememory</a></li>
+                                <li><a href="http://atria-soft.github.io/enet">enet</a></li>
+                                <li><a href="http://atria-soft.github.io/eproperty">eproperty</a></li>
+                                <li><a href="http://atria-soft.github.io/esignal">esignal</a></li>
+                                <li><a href="http://atria-soft.github.io/zeus">zeus</a></li>
+                                <li><a href="http://atria-soft.github.io/audio-ess">audio-ess</a></li>
+                                <li><a href="http://musicdsp.github.io/audio">audio</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-drain">audio-drain</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-orchestra">audio-orchestra</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-river">audio-river</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div id="search-box" class="input-group">
+                        <div class="input-group-btn">
+                            <button aria-expanded="false" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-search"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">Classes</a></li>
+                                <li><a href="#">Namespaces</a></li>
+                                <li><a href="#">Files</a></li>
+                                <li><a href="#">Functions</a></li>
+                                <li><a href="#">Variables</a></li>
+                                <li><a href="#">Typedefs</a></li>
+                                <li><a href="#">Enumerations</a></li>
+                                <li><a href="#">Enumerator</a></li>
+                                <li><a href="#">Friends</a></li>
+                                <li><a href="#">Macros</a></li>
+                                <li><a href="#">Pages</a></li>
+                            </ul>
+                        </div>
+                        <button id="search-close" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                        <input id="search-field" class="form-control" accesskey="S" onkeydown="searchBox.OnSearchFieldChange(event);" placeholder="Search ..." type="text">
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel panel-default" style="padding-bottom: 15px;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_644e041c3a6521da7b27eba0e4eb2b95.html">framework</a></li><li class="navelem"><a class="el" href="dir_a094892b17be858f66bf3446bbb755c7.html">atria-soft</a></li><li class="navelem"><a class="el" href="dir_1e67370a4e18df18be778d84d63cf6ec.html">eproperty</a></li><li class="navelem"><a class="el" href="dir_33c81e4b9fc22b7f638d1cb940c3db81.html">eproperty</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Property.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_property_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_interface_8hpp.html">eproperty/Interface.hpp</a>&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeproperty.html">eproperty</a> {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">class </span>Ref;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classeproperty_1_1_property.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classeproperty_1_1_property.html">Property</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">public</span>:</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classeproperty_1_1_property.html#a4055f2cadefba035e603dff559fbb499">   25</a></span>&#160;            <span class="keyword">using</span> <a class="code" href="classeproperty_1_1_property.html#a4055f2cadefba035e603dff559fbb499">Observer</a> = std::function&lt;void()&gt;; </div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">private</span>:</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="classeproperty_1_1_interface.html">eproperty::Interface</a>* m_interfaceLink; </div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="classeproperty_1_1_property.html#a4055f2cadefba035e603dff559fbb499">Observer</a> m_setObserver; </div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            std::string m_name; </div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">public</span>:</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="classeproperty_1_1_property.html#a9296cc98f6496851240e9dae1108ae4a">Property</a>(<a class="code" href="classeproperty_1_1_interface.html">eproperty::Interface</a>* _paramInterfaceLink, <span class="keyword">const</span> std::string&amp; _name);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="classeproperty_1_1_property.html#a9296cc98f6496851240e9dae1108ae4a">Property</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classeproperty_1_1_property.html#a260954313cca41b88ce8812f3374d229">~Property</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">protected</span>:</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classeproperty_1_1_property.html#a255f8584b0fbba2f8b5c5b998cbffcf5">setObserver</a>(<a class="code" href="classeproperty_1_1_property.html#a4055f2cadefba035e603dff559fbb499">eproperty::Property::Observer</a> _setObs);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">public</span>:</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classeproperty_1_1_property.html#aa8cf60776f4eb10021ff2ef84c969ea3">notifyChange</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">virtual</span> std::string <a class="code" href="classeproperty_1_1_property.html#a92d5c663768f4d0e21747a6095374c80">getName</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">virtual</span> std::string <a class="code" href="classeproperty_1_1_property.html#a029db34ae158d5577140ad365b58ce85">getInfo</a>() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keyword">virtual</span> std::string <a class="code" href="classeproperty_1_1_property.html#aaaaf2e088e2b096866874513716f5dba">getPropertyType</a>() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">virtual</span> std::string <a class="code" href="classeproperty_1_1_property.html#a84e14dae141539a568f09d8d4a9dd148">getType</a>() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">virtual</span> std::string <a class="code" href="classeproperty_1_1_property.html#a7b7397ba3479ad744e0f6d0272060ac2">getString</a>() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">virtual</span> std::string <a class="code" href="classeproperty_1_1_property.html#ad326ebde8292b00d379b9f0185e498b4">getDefault</a>() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classeproperty_1_1_property.html#a03def8222281a219945225d4895301b1">setString</a>(<span class="keyword">const</span> std::string&amp; _newVal) = 0;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#aa3ccb6590515b98e73587c8123f442c2">isDefault</a>() <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classeproperty_1_1_property.html#a8b7bf5ba543577ed2584143b0f73cd4e">setDefault</a>() = 0;</div><div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classeproperty_1_1_property.html#a8f3963bf1deef24b4c929533a2688080">  105</a></span>&#160;            <span class="keyword">virtual</span> std::vector&lt;std::string&gt; <a class="code" href="classeproperty_1_1_property.html#a8f3963bf1deef24b4c929533a2688080">getListValue</a>()<span class="keyword"> const </span>{</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">return</span> std::vector&lt;std::string&gt;();</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            }</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">public</span>:</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#ae8171efb00e60fe2c1c52c4456971100">operator== </a>(<span class="keyword">const</span> TYPE&amp; _obj) <span class="keyword">const</span> = <span class="keyword">delete</span>;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt;</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#a56e703cbd41048dbc3ae28edcdbcc44f">operator!= </a>(<span class="keyword">const</span> TYPE&amp; _obj) <span class="keyword">const</span> = <span class="keyword">delete</span>;</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt;</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#a5c60792cc196ecc7c6f778084b89f103">operator&lt;= </a>(<span class="keyword">const</span> TYPE&amp; _obj) <span class="keyword">const</span> = <span class="keyword">delete</span>;</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt;</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#a89ccd24d1fa9749cc8f6307fe4c6a130">operator&gt;= </a>(<span class="keyword">const</span> TYPE&amp; _obj) <span class="keyword">const</span> = <span class="keyword">delete</span>;</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt;</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#aacc1b51cc331beb8e078840970366b2a">operator&lt; </a>(<span class="keyword">const</span> TYPE&amp; _obj) <span class="keyword">const</span> = <span class="keyword">delete</span>;</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt;</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classeproperty_1_1_property.html#a094912b29d3b4f7b9a5e5c51f344238b">operator&gt; </a>(<span class="keyword">const</span> TYPE&amp; _obj) <span class="keyword">const</span> = <span class="keyword">delete</span>;</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    };</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div><div class="ttc" id="classeproperty_1_1_property_html_a029db34ae158d5577140ad365b58ce85"><div class="ttname"><a href="classeproperty_1_1_property.html#a029db34ae158d5577140ad365b58ce85">eproperty::Property::getInfo</a></div><div class="ttdeci">virtual std::string getInfo() const =0</div><div class="ttdoc">Description of the Propertys. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a094912b29d3b4f7b9a5e5c51f344238b"><div class="ttname"><a href="classeproperty_1_1_property.html#a094912b29d3b4f7b9a5e5c51f344238b">eproperty::Property::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const TYPE &amp;_obj) const =delete</div><div class="ttdoc">Greater comparaison operator (REMOVED) </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html"><div class="ttname"><a href="classeproperty_1_1_property.html">eproperty::Property</a></div><div class="ttdoc">Base of the property With all generic element needed. </div><div class="ttdef"><b>Definition:</b> Property.hpp:23</div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a92d5c663768f4d0e21747a6095374c80"><div class="ttname"><a href="classeproperty_1_1_property.html#a92d5c663768f4d0e21747a6095374c80">eproperty::Property::getName</a></div><div class="ttdeci">virtual std::string getName() const</div><div class="ttdoc">Get the name of the Property. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_ad326ebde8292b00d379b9f0185e498b4"><div class="ttname"><a href="classeproperty_1_1_property.html#ad326ebde8292b00d379b9f0185e498b4">eproperty::Property::getDefault</a></div><div class="ttdeci">virtual std::string getDefault() const =0</div><div class="ttdoc">Get the string of the default value of the Property. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a56e703cbd41048dbc3ae28edcdbcc44f"><div class="ttname"><a href="classeproperty_1_1_property.html#a56e703cbd41048dbc3ae28edcdbcc44f">eproperty::Property::operator!=</a></div><div class="ttdeci">bool operator!=(const TYPE &amp;_obj) const =delete</div><div class="ttdoc">IN-Eguality comparaison operator (REMOVED) </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a8b7bf5ba543577ed2584143b0f73cd4e"><div class="ttname"><a href="classeproperty_1_1_property.html#a8b7bf5ba543577ed2584143b0f73cd4e">eproperty::Property::setDefault</a></div><div class="ttdeci">virtual void setDefault()=0</div><div class="ttdoc">Reset the value to the default value. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_aacc1b51cc331beb8e078840970366b2a"><div class="ttname"><a href="classeproperty_1_1_property.html#aacc1b51cc331beb8e078840970366b2a">eproperty::Property::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const TYPE &amp;_obj) const =delete</div><div class="ttdoc">Lesser comparaison operator (REMOVED) </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_aa3ccb6590515b98e73587c8123f442c2"><div class="ttname"><a href="classeproperty_1_1_property.html#aa3ccb6590515b98e73587c8123f442c2">eproperty::Property::isDefault</a></div><div class="ttdeci">virtual bool isDefault() const =0</div><div class="ttdoc">Check if the value is the default. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a4055f2cadefba035e603dff559fbb499"><div class="ttname"><a href="classeproperty_1_1_property.html#a4055f2cadefba035e603dff559fbb499">eproperty::Property::Observer</a></div><div class="ttdeci">std::function&lt; void()&gt; Observer</div><div class="ttdoc">Local main object observer of changing value of the property. </div><div class="ttdef"><b>Definition:</b> Property.hpp:25</div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a255f8584b0fbba2f8b5c5b998cbffcf5"><div class="ttname"><a href="classeproperty_1_1_property.html#a255f8584b0fbba2f8b5c5b998cbffcf5">eproperty::Property::setObserver</a></div><div class="ttdeci">void setObserver(eproperty::Property::Observer _setObs)</div><div class="ttdoc">Set the change observer of the property. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a89ccd24d1fa9749cc8f6307fe4c6a130"><div class="ttname"><a href="classeproperty_1_1_property.html#a89ccd24d1fa9749cc8f6307fe4c6a130">eproperty::Property::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const TYPE &amp;_obj) const =delete</div><div class="ttdoc">Greater eguality comparaison operator (REMOVED) </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_aaaaf2e088e2b096866874513716f5dba"><div class="ttname"><a href="classeproperty_1_1_property.html#aaaaf2e088e2b096866874513716f5dba">eproperty::Property::getPropertyType</a></div><div class="ttdeci">virtual std::string getPropertyType() const =0</div><div class="ttdoc">Get the Property type of the class in string mode. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a5c60792cc196ecc7c6f778084b89f103"><div class="ttname"><a href="classeproperty_1_1_property.html#a5c60792cc196ecc7c6f778084b89f103">eproperty::Property::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const TYPE &amp;_obj) const =delete</div><div class="ttdoc">Lesser eguality comparaison operator (REMOVED) </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_aa8cf60776f4eb10021ff2ef84c969ea3"><div class="ttname"><a href="classeproperty_1_1_property.html#aa8cf60776f4eb10021ff2ef84c969ea3">eproperty::Property::notifyChange</a></div><div class="ttdeci">void notifyChange() const</div><div class="ttdoc">call main class that PropertyChange </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a8f3963bf1deef24b4c929533a2688080"><div class="ttname"><a href="classeproperty_1_1_property.html#a8f3963bf1deef24b4c929533a2688080">eproperty::Property::getListValue</a></div><div class="ttdeci">virtual std::vector&lt; std::string &gt; getListValue() const</div><div class="ttdoc">Specific for eproperty::List to get all the possible values. </div><div class="ttdef"><b>Definition:</b> Property.hpp:105</div></div>
+<div class="ttc" id="classeproperty_1_1_interface_html"><div class="ttname"><a href="classeproperty_1_1_interface.html">eproperty::Interface</a></div><div class="ttdoc">Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...</div><div class="ttdef"><b>Definition:</b> Interface.hpp:19</div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a260954313cca41b88ce8812f3374d229"><div class="ttname"><a href="classeproperty_1_1_property.html#a260954313cca41b88ce8812f3374d229">eproperty::Property::~Property</a></div><div class="ttdeci">virtual ~Property()=default</div><div class="ttdoc">Virtualize the destructor. </div></div>
+<div class="ttc" id="_interface_8hpp_html"><div class="ttname"><a href="_interface_8hpp.html">Interface.hpp</a></div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_ae8171efb00e60fe2c1c52c4456971100"><div class="ttname"><a href="classeproperty_1_1_property.html#ae8171efb00e60fe2c1c52c4456971100">eproperty::Property::operator==</a></div><div class="ttdeci">bool operator==(const TYPE &amp;_obj) const =delete</div><div class="ttdoc">Eguality comparaison operator (REMOVED) </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a9296cc98f6496851240e9dae1108ae4a"><div class="ttname"><a href="classeproperty_1_1_property.html#a9296cc98f6496851240e9dae1108ae4a">eproperty::Property::Property</a></div><div class="ttdeci">Property()</div><div class="ttdoc">Basic property elements. </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a03def8222281a219945225d4895301b1"><div class="ttname"><a href="classeproperty_1_1_property.html#a03def8222281a219945225d4895301b1">eproperty::Property::setString</a></div><div class="ttdeci">virtual void setString(const std::string &amp;_newVal)=0</div><div class="ttdoc">Set a new value of the Property (with string interface). </div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a84e14dae141539a568f09d8d4a9dd148"><div class="ttname"><a href="classeproperty_1_1_property.html#a84e14dae141539a568f09d8d4a9dd148">eproperty::Property::getType</a></div><div class="ttdeci">virtual std::string getType() const =0</div><div class="ttdoc">Get the type of the Property in string mode. </div></div>
+<div class="ttc" id="namespaceeproperty_html"><div class="ttname"><a href="namespaceeproperty.html">eproperty</a></div><div class="ttdoc">eproperty global interface for all property implementation </div><div class="ttdef"><b>Definition:</b> Interface.hpp:14</div></div>
+<div class="ttc" id="classeproperty_1_1_property_html_a7b7397ba3479ad744e0f6d0272060ac2"><div class="ttname"><a href="classeproperty_1_1_property.html#a7b7397ba3479ad744e0f6d0272060ac2">eproperty::Property::getString</a></div><div class="ttdeci">virtual std::string getString() const =0</div><div class="ttdoc">Get the string of the current value of the Property. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Mon Oct 24 2016 10:48:21 for eproperty: Ewol property interface by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>

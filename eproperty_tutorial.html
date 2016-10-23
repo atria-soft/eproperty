@@ -1,0 +1,196 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.12"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>eproperty: Ewol property interface: Tutorial</title>
+        <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">eproperty: Ewol property interface 0.1-dev</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Main&nbsp;Page</a></li>
+                        <li><a href="pages.html">Related&nbsp;Pages</a></li>
+                        <li><a href="namespaces.html">Namespaces</a></li>
+                        <li><a href="annotated.html">Classes</a></li>
+                        <li><a href="files.html">Files</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Link-libs<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://HeeroYui.github.io/lutin">lutin</a></li>
+                                <li><a href="http://atria-soft.github.io/ewol">ewol</a></li>
+                                <li><a href="http://atria-soft.github.io/etk">etk</a></li>
+                                <li><a href="http://atria-soft.github.io/ejson">ejson</a></li>
+                                <li><a href="http://atria-soft.github.io/exml">exml</a></li>
+                                <li><a href="http://atria-soft.github.io/esvg">esvg</a></li>
+                                <li><a href="http://atria-soft.github.io/egami">egami</a></li>
+                                <li><a href="http://atria-soft.github.io/gale">gale</a></li>
+                                <li><a href="http://atria-soft.github.io/ege">ege</a></li>
+                                <li><a href="http://atria-soft.github.io/elog">elog</a></li>
+                                <li><a href="http://atria-soft.github.io/ememory">ememory</a></li>
+                                <li><a href="http://atria-soft.github.io/enet">enet</a></li>
+                                <li><a href="http://atria-soft.github.io/eproperty">eproperty</a></li>
+                                <li><a href="http://atria-soft.github.io/esignal">esignal</a></li>
+                                <li><a href="http://atria-soft.github.io/zeus">zeus</a></li>
+                                <li><a href="http://atria-soft.github.io/audio-ess">audio-ess</a></li>
+                                <li><a href="http://musicdsp.github.io/audio">audio</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-drain">audio-drain</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-orchestra">audio-orchestra</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-river">audio-river</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div id="search-box" class="input-group">
+                        <div class="input-group-btn">
+                            <button aria-expanded="false" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-search"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">Classes</a></li>
+                                <li><a href="#">Namespaces</a></li>
+                                <li><a href="#">Files</a></li>
+                                <li><a href="#">Functions</a></li>
+                                <li><a href="#">Variables</a></li>
+                                <li><a href="#">Typedefs</a></li>
+                                <li><a href="#">Enumerations</a></li>
+                                <li><a href="#">Enumerator</a></li>
+                                <li><a href="#">Friends</a></li>
+                                <li><a href="#">Macros</a></li>
+                                <li><a href="#">Pages</a></li>
+                            </ul>
+                        </div>
+                        <button id="search-close" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                        <input id="search-field" class="form-control" accesskey="S" onkeydown="searchBox.OnSearchFieldChange(event);" placeholder="Search ..." type="text">
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel panel-default" style="padding-bottom: 15px;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Tutorial </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#eproperty_tutorial_what">What is a property:                                </a></li>
+<li class="level1"><a href="#eproperty_tutorial_declare">Declare property:                                </a><ul><li class="level2"><a href="#eproperty_tutorial_declare_value">Declare a Value property:                                </a></li>
+<li class="level2"><a href="#eproperty_tutorial_declare_range">Declare a Range property:                                </a></li>
+<li class="level2"><a href="#eproperty_tutorial_declare_list">Declare a List property:                                </a></li>
+</ul>
+</li>
+<li class="level1"><a href="#eproperty_tutorial_particularity">Particularity:                                </a><ul><li class="level2"><a href="#eproperty_tutorial_particularity_callback">Define a callback:                                </a></li>
+<li class="level2"><a href="#eproperty_tutorial_particularity_direct_set">Set value without calling the callback:               </a></li>
+<li class="level2"><a href="#eproperty_tutorial_particularity_heritage">Heritage and callback:                                </a></li>
+</ul>
+</li>
+<li class="level1"><a href="#eproperty_tutorial_all_code">All sample Code:                                </a></li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="eproperty_tutorial_what"></a>
+What is a property:                                </h1>
+<p>A property is a generic interface to manage parameter of a class whithout redeclare all the time the setter and getter (that is a little boring)</p>
+<p>Calling a property car mermit to be notify when the value change and to control the values range of list ...</p>
+<p>A property can use agreator interface eproperty::interface that declare a **"properties"** variablke that permit to acces at all the property declared.</p>
+<p>Declare a class that have this interface: </p><div class="fragment"><div class="line"><span class="keyword">class </span>sampleClassGroup : <span class="keyword">public</span> <a class="code" href="classeproperty_1_1_interface.html">eproperty::Interface</a> {</div></div><!-- fragment --><h1><a class="anchor" id="eproperty_tutorial_declare"></a>
+Declare property:                                </h1>
+<p>We have some basic properties:</p><ul>
+<li><a class="el" href="classeproperty_1_1_value.html" title="Simple Value of the property (need to implement fuction etk::from_string&lt;TYPE&gt; to use it) ...">eproperty::Value</a> Simple store of a unique Value</li>
+<li><a class="el" href="classeproperty_1_1_range.html" title="Range template of the property (limit with a min and a max value) ">eproperty::Range</a> Store a value inside an authorized range</li>
+<li><a class="el" href="classeproperty_1_1_list.html" title="Set a list of value availlable (for enumeration) ">eproperty::List</a> Store a value inside a list of values (set in constructor)</li>
+</ul>
+<h2><a class="anchor" id="eproperty_tutorial_declare_value"></a>
+Declare a Value property:                                </h2>
+<p>Do the correct include: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_value_8hpp.html">eproperty/Value.hpp</a>&gt;</span></div></div><!-- fragment --><p> Declare your property: </p><div class="fragment"><div class="line">        <a class="code" href="classeproperty_1_1_value.html">eproperty::Value&lt;std::string&gt;</a> propertyValue; </div></div><!-- fragment --><p> Construct the property with <a class="el" href="classeproperty_1_1_interface.html" title="Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...">eproperty::Interface</a>: </p><div class="fragment"><div class="line">          propertyValue(<span class="keyword">this</span>, <span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;default value&quot;</span>, <span class="stringliteral">&quot;optionnal Description&quot;</span>, &amp;sampleClassGroup::onPropertyChangeValue),</div></div><!-- fragment --><p> Construct the property with <b>NO</b> <a class="el" href="classeproperty_1_1_interface.html" title="Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...">eproperty::Interface</a>: </p><div class="fragment"><div class="line">          propertyValue(<span class="stringliteral">&quot;default value&quot;</span>),</div></div><!-- fragment --><p> Configure your property: </p><div class="fragment"><div class="line">    myClass.propertyValue.set(<span class="stringliteral">&quot;New Value&quot;</span>);</div><div class="line">    myClass.propertyValue.setString(<span class="stringliteral">&quot;New Value 2&quot;</span>);</div></div><!-- fragment --><p> Use your property: </p><div class="fragment"><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    value:&quot;</span> &lt;&lt; *propertyValue);</div></div><!-- fragment --><h2><a class="anchor" id="eproperty_tutorial_declare_range"></a>
+Declare a Range property:                                </h2>
+<p>Do the correct include: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_range_8hpp.html">eproperty/Range.hpp</a>&gt;</span></div></div><!-- fragment --><p> Declare your property: </p><div class="fragment"><div class="line">        <a class="code" href="classeproperty_1_1_range.html">eproperty::Range&lt;int32_t&gt;</a> propertyRange; </div></div><!-- fragment --><p> Construct the property with <a class="el" href="classeproperty_1_1_interface.html" title="Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...">eproperty::Interface</a>: </p><div class="fragment"><div class="line">          propertyRange(<span class="keyword">this</span>, <span class="stringliteral">&quot;range&quot;</span>, 5646546, -5, 555555555) {</div></div><!-- fragment --><p> Construct the property with <b>NO</b> <a class="el" href="classeproperty_1_1_interface.html" title="Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...">eproperty::Interface</a>: </p><div class="fragment"><div class="line">          propertyRange(5646546, -5, 555555555) {</div></div><!-- fragment --><p> Configure your property: </p><div class="fragment"><div class="line">    myClass.propertyRange.set(15621);</div><div class="line">    myClass.propertyRange.setString(<span class="stringliteral">&quot;15621&quot;</span>);</div></div><!-- fragment --><p> Use your property: </p><div class="fragment"><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    range:&quot;</span> &lt;&lt; *propertyRange);</div></div><!-- fragment --><h2><a class="anchor" id="eproperty_tutorial_declare_list"></a>
+Declare a List property:                                </h2>
+<p>Do the correct include: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_list_8hpp.html">eproperty/List.hpp</a>&gt;</span></div></div><!-- fragment --><p> Declare your property: </p><div class="fragment"><div class="line">        <a class="code" href="classeproperty_1_1_list.html">eproperty::List&lt;enum simpleEnum&gt;</a> propertyList; </div></div><!-- fragment --><p> Construct the property with <a class="el" href="classeproperty_1_1_interface.html" title="Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...">eproperty::Interface</a>: </p><div class="fragment"><div class="line">          propertyList(<span class="keyword">this</span>, <span class="stringliteral">&quot;list&quot;</span>, simpleEnum_enum4),</div></div><!-- fragment --><p> Construct the property with <b>NO</b> <a class="el" href="classeproperty_1_1_interface.html" title="Interface to collect the property list (for abstarction &quot;set&quot; and &quot;get&quot;) It create a simple &quot;properti...">eproperty::Interface</a>: </p><div class="fragment"><div class="line">          propertyList(simpleEnum_enum4),</div></div><!-- fragment --><p> Special case for the List is adding the value with their string assiciated: </p><div class="fragment"><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum1, <span class="stringliteral">&quot;enum1&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum2, <span class="stringliteral">&quot;enum2&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum3, <span class="stringliteral">&quot;enum3&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum4, <span class="stringliteral">&quot;enum4&quot;</span>);</div></div><!-- fragment --><p> Configure your property: </p><div class="fragment"><div class="line">    myClass.propertyList.set(simpleEnum_enum3);</div><div class="line">    myClass.propertyList.setString(<span class="stringliteral">&quot;enum3&quot;</span>);</div></div><!-- fragment --><p> Use your property: </p><div class="fragment"><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    list:&quot;</span> &lt;&lt; *propertyList);</div></div><!-- fragment --><h1><a class="anchor" id="eproperty_tutorial_particularity"></a>
+Particularity:                                </h1>
+<h2><a class="anchor" id="eproperty_tutorial_particularity_callback"></a>
+Define a callback:                                </h2>
+<p>All property can define a callback, it is used to update class property with special settings.</p>
+<p>The callback is set in the construction instruction like: </p><div class="fragment"><div class="line">          propertyValue(<span class="keyword">this</span>, <span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;default value&quot;</span>, <span class="stringliteral">&quot;optionnal Description&quot;</span>, &amp;sampleClassGroup::onPropertyChangeValue),</div></div><!-- fragment --><p> The fucntion define is like: </p><div class="fragment"><div class="line">        <span class="keywordtype">void</span> onPropertyChangeValue() {</div><div class="line">            TEST_PRINT(<span class="stringliteral">&quot;Property value has change ... &quot;</span> &lt;&lt; *propertyValue);</div><div class="line">            </div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;Use properties:&quot;</span>);</div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    value:&quot;</span> &lt;&lt; *propertyValue);</div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    range:&quot;</span> &lt;&lt; *propertyRange);</div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    list:&quot;</span> &lt;&lt; *propertyList);</div><div class="line">            </div><div class="line">            </div><div class="line">        }</div></div><!-- fragment --><p> It is called every time the Value change, if the value is identical the callback is not called.</p>
+<h2><a class="anchor" id="eproperty_tutorial_particularity_direct_set"></a>
+Set value without calling the callback:               </h2>
+<p>To set a value in a property without calling the nitifiction function, you might use: </p><div class="fragment"><div class="line">            <span class="comment">// no check on the value set (the faster in CPU cycle)</span></div><div class="line">            propertyValue.<a class="code" href="classeproperty_1_1_property_type.html#a6ed039b0b21636971e4e063521ea1eea">setDirect</a>(<span class="stringliteral">&quot;New Value to Set&quot;</span>);</div><div class="line">            <span class="comment">// Check the internal value (better for range)</span></div><div class="line">            propertyRange.<a class="code" href="classeproperty_1_1_range.html#a8fec069565fb60c676996b6153dd6fa8">setDirectCheck</a>(-5555);</div></div><!-- fragment --><p> Please do not use it ouside the internal class that define the peoperty (call me if you have an api to control it at the compilation time)</p>
+<h2><a class="anchor" id="eproperty_tutorial_particularity_heritage"></a>
+Heritage and callback:                                </h2>
+<p>When you herit from an other class with theire property you can prefer changing the default value or set an other list of parameter.</p>
+<p>To set value without calling the callback (that can be virtual then ==0 in the initialisation state), you need to call: </p><div class="fragment"><div class="line">            <span class="comment">// no check on the value set (the faster in CPU cycle)</span></div><div class="line">            propertyValue.<a class="code" href="classeproperty_1_1_property_type.html#a6ed039b0b21636971e4e063521ea1eea">setDirect</a>(<span class="stringliteral">&quot;New Value to Set&quot;</span>);</div><div class="line">            <span class="comment">// Check the internal value (better for range)</span></div><div class="line">            propertyRange.<a class="code" href="classeproperty_1_1_range.html#a8fec069565fb60c676996b6153dd6fa8">setDirectCheck</a>(-5555);</div></div><!-- fragment --><p> For the <a class="el" href="classeproperty_1_1_list.html" title="Set a list of value availlable (for enumeration) ">eproperty::List</a>, you chan rename enumeration or remove values: </p><div class="fragment"><div class="line">            <span class="comment">// Rename an element</span></div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#afb7b6eb9c5b8278c7152b1c59ec58a47">rename</a>(<span class="stringliteral">&quot;enum1&quot;</span>, <span class="stringliteral">&quot;new enum name&quot;</span>);</div><div class="line">            <span class="comment">// Remove an element</span></div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#a4121cd142499fbc2dc4f04ee107dc82c">remove</a>(<span class="stringliteral">&quot;enum2&quot;</span>);</div></div><!-- fragment --><h1><a class="anchor" id="eproperty_tutorial_all_code"></a>
+All sample Code:                                </h1>
+<p>This Will generate this simple sample code: </p><div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_interface_8hpp.html">eproperty/Interface.hpp</a>&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_value_8hpp.html">eproperty/Value.hpp</a>&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_list_8hpp.html">eproperty/List.hpp</a>&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_range_8hpp.html">eproperty/Range.hpp</a>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">enum</span> simpleEnum {</div><div class="line">    simpleEnum_enum1,</div><div class="line">    simpleEnum_enum2,</div><div class="line">    simpleEnum_enum3,</div><div class="line">    simpleEnum_enum4,</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">class </span>sampleClassGroup : <span class="keyword">public</span> <a class="code" href="classeproperty_1_1_interface.html">eproperty::Interface</a> {</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <a class="code" href="classeproperty_1_1_value.html">eproperty::Value&lt;std::string&gt;</a> propertyValue; </div><div class="line">        <a class="code" href="classeproperty_1_1_list.html">eproperty::List&lt;enum simpleEnum&gt;</a> propertyList; </div><div class="line">        <a class="code" href="classeproperty_1_1_range.html">eproperty::Range&lt;int32_t&gt;</a> propertyRange; </div><div class="line">        </div><div class="line">        sampleClassGroup():</div><div class="line">          propertyValue(this, <span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;default value&quot;</span>, <span class="stringliteral">&quot;optionnal Description&quot;</span>, &amp;sampleClassGroup::onPropertyChangeValue),</div><div class="line">          propertyList(this, <span class="stringliteral">&quot;list&quot;</span>, simpleEnum_enum4),</div><div class="line">          propertyRange(this, <span class="stringliteral">&quot;range&quot;</span>, 5646546, -5, 555555555) {</div><div class="line">            <span class="comment">// add all enumeration values</span></div><div class="line"><span class="comment"></span>            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum1, <span class="stringliteral">&quot;enum1&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum2, <span class="stringliteral">&quot;enum2&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum3, <span class="stringliteral">&quot;enum3&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum4, <span class="stringliteral">&quot;enum4&quot;</span>);</div><div class="line">            <span class="comment">// Rename an element</span></div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#afb7b6eb9c5b8278c7152b1c59ec58a47">rename</a>(<span class="stringliteral">&quot;enum1&quot;</span>, <span class="stringliteral">&quot;new enum name&quot;</span>);</div><div class="line">            <span class="comment">// Remove an element</span></div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#a4121cd142499fbc2dc4f04ee107dc82c">remove</a>(<span class="stringliteral">&quot;enum2&quot;</span>);</div><div class="line">            <span class="comment">// no check on the value set (the faster in CPU cycle)</span></div><div class="line">            propertyValue.<a class="code" href="classeproperty_1_1_property_type.html#a6ed039b0b21636971e4e063521ea1eea">setDirect</a>(<span class="stringliteral">&quot;New Value to Set&quot;</span>);</div><div class="line">            <span class="comment">// Check the internal value (better for range)</span></div><div class="line">            propertyRange.<a class="code" href="classeproperty_1_1_range.html#a8fec069565fb60c676996b6153dd6fa8">setDirectCheck</a>(-5555);</div><div class="line">        }</div><div class="line">        <span class="keywordtype">void</span> onPropertyChangeValue() {</div><div class="line">            TEST_PRINT(<span class="stringliteral">&quot;Property value has change ... &quot;</span> &lt;&lt; *propertyValue);</div><div class="line">            </div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;Use properties:&quot;</span>);</div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    value:&quot;</span> &lt;&lt; *propertyValue);</div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    range:&quot;</span> &lt;&lt; *propertyRange);</div><div class="line">            TEST_INFO(<span class="stringliteral">&quot;    list:&quot;</span> &lt;&lt; *propertyList);</div><div class="line">            </div><div class="line">            </div><div class="line">        }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">class </span>sampleClassSolo {</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <a class="code" href="classeproperty_1_1_value.html">eproperty::Value&lt;std::string&gt;</a> propertyValue;</div><div class="line">        <a class="code" href="classeproperty_1_1_list.html">eproperty::List&lt;enum simpleEnum&gt;</a> propertyList;</div><div class="line">        <a class="code" href="classeproperty_1_1_range.html">eproperty::Range&lt;int32_t&gt;</a> propertyRange;</div><div class="line">        sampleClassSolo():</div><div class="line">          propertyValue(<span class="stringliteral">&quot;default value&quot;</span>),</div><div class="line">          propertyList(simpleEnum_enum4),</div><div class="line">          propertyRange(5646546, -5, 555555555) {</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum1, <span class="stringliteral">&quot;enum1&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum2, <span class="stringliteral">&quot;enum2&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum3, <span class="stringliteral">&quot;enum3&quot;</span>);</div><div class="line">            propertyList.<a class="code" href="classeproperty_1_1_list.html#aa71abefd3155ffe97a4e2496fc136a7b">add</a>(simpleEnum_enum4, <span class="stringliteral">&quot;enum4&quot;</span>);</div><div class="line">        }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> simpleSet() {</div><div class="line">    sampleClassGroup myClass;</div><div class="line">    </div><div class="line">    myClass.propertyValue.set(<span class="stringliteral">&quot;New Value&quot;</span>);</div><div class="line">    myClass.propertyValue.setString(<span class="stringliteral">&quot;New Value 2&quot;</span>);</div><div class="line">    myClass.propertyList.set(simpleEnum_enum3);</div><div class="line">    myClass.propertyList.setString(<span class="stringliteral">&quot;enum3&quot;</span>);</div><div class="line">    myClass.propertyRange.set(15621);</div><div class="line">    myClass.propertyRange.setString(<span class="stringliteral">&quot;15621&quot;</span>);</div><div class="line">    </div><div class="line">    myClass.properties.set(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;New Value in string&quot;</span>);</div><div class="line">    myClass.properties.set(<span class="stringliteral">&quot;list&quot;</span>, <span class="stringliteral">&quot;enum4&quot;</span>);</div><div class="line">    myClass.properties.set(<span class="stringliteral">&quot;range&quot;</span>, <span class="stringliteral">&quot;-2&quot;</span>);</div><div class="line">    </div><div class="line">}</div></div><!-- fragment --></div></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Mon Oct 24 2016 10:48:21 for eproperty: Ewol property interface by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>

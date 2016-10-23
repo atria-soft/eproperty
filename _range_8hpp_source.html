@@ -1,0 +1,164 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.12"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>eproperty: Ewol property interface: framework/atria-soft/eproperty/eproperty/Range.hpp Source File</title>
+        <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">eproperty: Ewol property interface 0.1-dev</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Main&nbsp;Page</a></li>
+                        <li><a href="pages.html">Related&nbsp;Pages</a></li>
+                        <li><a href="namespaces.html">Namespaces</a></li>
+                        <li><a href="annotated.html">Classes</a></li>
+                        <li><a href="files.html">Files</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Link-libs<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://HeeroYui.github.io/lutin">lutin</a></li>
+                                <li><a href="http://atria-soft.github.io/ewol">ewol</a></li>
+                                <li><a href="http://atria-soft.github.io/etk">etk</a></li>
+                                <li><a href="http://atria-soft.github.io/ejson">ejson</a></li>
+                                <li><a href="http://atria-soft.github.io/exml">exml</a></li>
+                                <li><a href="http://atria-soft.github.io/esvg">esvg</a></li>
+                                <li><a href="http://atria-soft.github.io/egami">egami</a></li>
+                                <li><a href="http://atria-soft.github.io/gale">gale</a></li>
+                                <li><a href="http://atria-soft.github.io/ege">ege</a></li>
+                                <li><a href="http://atria-soft.github.io/elog">elog</a></li>
+                                <li><a href="http://atria-soft.github.io/ememory">ememory</a></li>
+                                <li><a href="http://atria-soft.github.io/enet">enet</a></li>
+                                <li><a href="http://atria-soft.github.io/eproperty">eproperty</a></li>
+                                <li><a href="http://atria-soft.github.io/esignal">esignal</a></li>
+                                <li><a href="http://atria-soft.github.io/zeus">zeus</a></li>
+                                <li><a href="http://atria-soft.github.io/audio-ess">audio-ess</a></li>
+                                <li><a href="http://musicdsp.github.io/audio">audio</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-drain">audio-drain</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-orchestra">audio-orchestra</a></li>
+                                <li><a href="http://musicdsp.github.io/audio-river">audio-river</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div id="search-box" class="input-group">
+                        <div class="input-group-btn">
+                            <button aria-expanded="false" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-search"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">Classes</a></li>
+                                <li><a href="#">Namespaces</a></li>
+                                <li><a href="#">Files</a></li>
+                                <li><a href="#">Functions</a></li>
+                                <li><a href="#">Variables</a></li>
+                                <li><a href="#">Typedefs</a></li>
+                                <li><a href="#">Enumerations</a></li>
+                                <li><a href="#">Enumerator</a></li>
+                                <li><a href="#">Friends</a></li>
+                                <li><a href="#">Macros</a></li>
+                                <li><a href="#">Pages</a></li>
+                            </ul>
+                        </div>
+                        <button id="search-close" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                        <input id="search-field" class="form-control" accesskey="S" onkeydown="searchBox.OnSearchFieldChange(event);" placeholder="Search ..." type="text">
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel panel-default" style="padding-bottom: 15px;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_644e041c3a6521da7b27eba0e4eb2b95.html">framework</a></li><li class="navelem"><a class="el" href="dir_a094892b17be858f66bf3446bbb755c7.html">atria-soft</a></li><li class="navelem"><a class="el" href="dir_1e67370a4e18df18be778d84d63cf6ec.html">eproperty</a></li><li class="navelem"><a class="el" href="dir_33c81e4b9fc22b7f638d1cb940c3db81.html">eproperty</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Range.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_range_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_interface_8hpp.html">eproperty/Interface.hpp</a>&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_value_8hpp.html">eproperty/Value.hpp</a>&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeproperty.html">eproperty</a> {</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classeproperty_1_1_range.html">   19</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt; <span class="keyword">class </span><a class="code" href="classeproperty_1_1_range.html">Range</a> : <span class="keyword">public</span> <a class="code" href="classeproperty_1_1_value.html">Value</a>&lt;TYPE&gt; {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">private</span>:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            TYPE m_min; </div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            TYPE m_max; </div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">public</span>:</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> CLASS_TYPE&gt;</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classeproperty_1_1_range.html#a88d580fb49f89b47292ee0e9d359c35c">   35</a></span>&#160;            <a class="code" href="classeproperty_1_1_range.html#a88d580fb49f89b47292ee0e9d359c35c">Range</a>(CLASS_TYPE* _owner,</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                  <span class="keyword">const</span> std::string&amp; _name,</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                  <span class="keyword">const</span> TYPE&amp; _defaultValue,</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                  <span class="keyword">const</span> TYPE&amp; _min,</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                  <span class="keyword">const</span> TYPE&amp; _max,</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                  <span class="keyword">const</span> std::string&amp; _description = <span class="stringliteral">&quot;&quot;</span>,</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                  <span class="keywordtype">void</span> (CLASS_TYPE::*_setObs)()=<span class="keyword">nullptr</span>) :</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;              <a class="code" href="namespaceeproperty.html">eproperty</a>::<a class="code" href="classeproperty_1_1_value.html">Value</a>&lt;TYPE&gt;(_owner, _name, _defaultValue, _description, _setObs),</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;              m_min(_min),</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;              m_max(_max) {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> (m_min &gt; m_max) {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="comment">//EPROPERTY_CRITICAL(&quot;min &gt; max...&quot;);</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            };</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="classeproperty_1_1_range.html#a88d580fb49f89b47292ee0e9d359c35c">Range</a>(<span class="keyword">const</span> TYPE&amp; _defaultValue,</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                  <span class="keyword">const</span> TYPE&amp; _min,</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                  <span class="keyword">const</span> TYPE&amp; _max);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classeproperty_1_1_range.html#ad06858816613cc15cf1e529bfb4f5dea">~Range</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::string <a class="code" href="classeproperty_1_1_range.html#a74cc2b6ec2dfa48a45929e5c0d329447">getPropertyType</a>() <span class="keyword">const override</span>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classeproperty_1_1_range.html#aad22c44ebddc3ec4c29f28cc613611c1">setString</a>(<span class="keyword">const</span> std::string&amp; _newVal) <span class="keyword">override</span>;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            std::string <a class="code" href="classeproperty_1_1_range.html#a8bd715af2c0ff3ccdfb658f919d5f205">getInfo</a>() <span class="keyword">const override</span>;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">public</span>:</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordtype">void</span> <span class="keyword">set</span>(<span class="keyword">const</span> TYPE&amp; _newVal) <span class="keyword">override</span>;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classeproperty_1_1_range.html#a8fec069565fb60c676996b6153dd6fa8">setDirectCheck</a>(<span class="keyword">const</span> TYPE&amp; _newVal) <span class="keyword">override</span>;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    };</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt; std::ostream&amp; operator &lt;&lt;(std::ostream&amp; _os, const eproperty::Range&lt;TYPE&gt;&amp; _obj) {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        _os &lt;&lt; _obj.get();</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> _os;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div><div class="ttc" id="classeproperty_1_1_range_html_aad22c44ebddc3ec4c29f28cc613611c1"><div class="ttname"><a href="classeproperty_1_1_range.html#aad22c44ebddc3ec4c29f28cc613611c1">eproperty::Range::setString</a></div><div class="ttdeci">void setString(const std::string &amp;_newVal) override</div><div class="ttdoc">Set a new value of the Property (with string interface). </div></div>
+<div class="ttc" id="classeproperty_1_1_range_html"><div class="ttname"><a href="classeproperty_1_1_range.html">eproperty::Range</a></div><div class="ttdoc">Range template of the property (limit with a min and a max value) </div><div class="ttdef"><b>Definition:</b> Range.hpp:19</div></div>
+<div class="ttc" id="classeproperty_1_1_range_html_a88d580fb49f89b47292ee0e9d359c35c"><div class="ttname"><a href="classeproperty_1_1_range.html#a88d580fb49f89b47292ee0e9d359c35c">eproperty::Range::Range</a></div><div class="ttdeci">Range(CLASS_TYPE *_owner, const std::string &amp;_name, const TYPE &amp;_defaultValue, const TYPE &amp;_min, const TYPE &amp;_max, const std::string &amp;_description=&quot;&quot;, void(CLASS_TYPE::*_setObs)()=nullptr)</div><div class="ttdoc">Create a parameter with a specific type. </div><div class="ttdef"><b>Definition:</b> Range.hpp:35</div></div>
+<div class="ttc" id="_value_8hpp_html"><div class="ttname"><a href="_value_8hpp.html">Value.hpp</a></div></div>
+<div class="ttc" id="classeproperty_1_1_range_html_ad06858816613cc15cf1e529bfb4f5dea"><div class="ttname"><a href="classeproperty_1_1_range.html#ad06858816613cc15cf1e529bfb4f5dea">eproperty::Range::~Range</a></div><div class="ttdeci">virtual ~Range()=default</div><div class="ttdoc">Destructor. </div></div>
+<div class="ttc" id="classeproperty_1_1_range_html_a8bd715af2c0ff3ccdfb658f919d5f205"><div class="ttname"><a href="classeproperty_1_1_range.html#a8bd715af2c0ff3ccdfb658f919d5f205">eproperty::Range::getInfo</a></div><div class="ttdeci">std::string getInfo() const override</div><div class="ttdoc">Description of the Propertys. </div></div>
+<div class="ttc" id="_interface_8hpp_html"><div class="ttname"><a href="_interface_8hpp.html">Interface.hpp</a></div></div>
+<div class="ttc" id="classeproperty_1_1_range_html_a74cc2b6ec2dfa48a45929e5c0d329447"><div class="ttname"><a href="classeproperty_1_1_range.html#a74cc2b6ec2dfa48a45929e5c0d329447">eproperty::Range::getPropertyType</a></div><div class="ttdeci">std::string getPropertyType() const override</div><div class="ttdoc">Get the Property type of the class in string mode. </div></div>
+<div class="ttc" id="classeproperty_1_1_value_html"><div class="ttname"><a href="classeproperty_1_1_value.html">eproperty::Value</a></div><div class="ttdoc">Simple Value of the property (need to implement fuction etk::from_string&lt;TYPE&gt; to use it) ...</div><div class="ttdef"><b>Definition:</b> Value.hpp:20</div></div>
+<div class="ttc" id="classeproperty_1_1_range_html_a8fec069565fb60c676996b6153dd6fa8"><div class="ttname"><a href="classeproperty_1_1_range.html#a8fec069565fb60c676996b6153dd6fa8">eproperty::Range::setDirectCheck</a></div><div class="ttdeci">void setDirectCheck(const TYPE &amp;_newVal) override</div><div class="ttdoc">Set the value of the current parameter (check range and ... if needed). </div></div>
+<div class="ttc" id="namespaceeproperty_html"><div class="ttname"><a href="namespaceeproperty.html">eproperty</a></div><div class="ttdoc">eproperty global interface for all property implementation </div><div class="ttdef"><b>Definition:</b> Interface.hpp:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Mon Oct 24 2016 10:48:21 for eproperty: Ewol property interface by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>
