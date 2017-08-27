@@ -11,7 +11,7 @@
 #include <eproperty/Property.hpp>
 
 
-eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name) :
+eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const etk::String& _name) :
   m_interfaceLink(_paramInterfaceLink),
   m_setObserver(),
   m_name(_name) {
@@ -32,7 +32,7 @@ void eproperty::Property::setObserver(eproperty::Property::Observer _setObs) {
 	m_setObserver = _setObs;
 }
 
-std::string eproperty::Property::getName() const {
+etk::String eproperty::Property::getName() const {
 	return m_name;
 }
 

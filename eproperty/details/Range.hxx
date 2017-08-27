@@ -23,12 +23,12 @@ eproperty::Range<TYPE>::Range(const TYPE& _defaultValue,
 }
 
 template<class TYPE>
-std::string eproperty::Range<TYPE>::getPropertyType() const {
+etk::String eproperty::Range<TYPE>::getPropertyType() const {
 	return "eproperty::Range";
 }
 
 template<class TYPE>
-void eproperty::Range<TYPE>::setString(const std::string& _newVal) {
+void eproperty::Range<TYPE>::setString(const etk::String& _newVal) {
 	TYPE val;
 	// when you want to set an element in parameter you will implement the function template std::from_string
 	etk::from_string(val, _newVal);
@@ -36,7 +36,7 @@ void eproperty::Range<TYPE>::setString(const std::string& _newVal) {
 }
 
 template<class TYPE>
-std::string eproperty::Range<TYPE>::getInfo() const {
+etk::String eproperty::Range<TYPE>::getInfo() const {
 	return eproperty::Value<TYPE>::getType() + " default=" + eproperty::Value<TYPE>::getDefault();
 }
 
@@ -48,7 +48,7 @@ void eproperty::Range<TYPE>::set(const TYPE& _newVal) {
 			eproperty::Value<TYPE>::notifyChange();
 		}
 	} else {
-		TYPE newVal = std::avg(m_min, _newVal, m_max);
+		TYPE newVal = etk::avg(m_min, _newVal, m_max);
 		if (newVal != eproperty::Value<TYPE>::m_value) {
 			eproperty::Value<TYPE>::m_value = newVal;
 			eproperty::Value<TYPE>::notifyChange();
@@ -63,7 +63,7 @@ void eproperty::Range<TYPE>::setDirectCheck(const TYPE& _newVal) {
 			eproperty::Value<TYPE>::m_value = _newVal;
 		}
 	} else {
-		TYPE newVal = std::avg(m_min, _newVal, m_max);
+		TYPE newVal = etk::avg(m_min, _newVal, m_max);
 		if (newVal != eproperty::Value<TYPE>::m_value) {
 			eproperty::Value<TYPE>::m_value = newVal;
 		}

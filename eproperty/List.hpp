@@ -8,7 +8,7 @@
 #pragma once
 
 #include <eproperty/PropertyType.hpp>
-#include <map>
+#include <etk/Map.hpp>
 #include <typeinfo>
 
 namespace eproperty {
@@ -17,7 +17,7 @@ namespace eproperty {
 	 */
 	template<class TYPE> class List : public PropertyType<TYPE> {
 		private:
-			std::map<std::string, TYPE> m_list; //!< pointer on the list of all elements.
+			etk::Map<etk::String, TYPE> m_list; //!< pointer on the list of all elements.
 		public:
 			/**
 			 * @brief Create a parameter with List of element parameter (nullptr if none).
@@ -29,9 +29,9 @@ namespace eproperty {
 			 */
 			template<class CLASS_TYPE>
 			List(CLASS_TYPE* _owner,
-			     const std::string& _name,
+			     const etk::String& _name,
 			     const TYPE& _defaultValue,
-			     const std::string& _description="",
+			     const etk::String& _description="",
 			     void (CLASS_TYPE::*_setObs)()=nullptr) :
 			  eproperty::PropertyType<TYPE>(_owner, _name, _defaultValue, _description, _setObs) {
 				
@@ -54,19 +54,19 @@ namespace eproperty {
 			 * @param[in] _name String of the value
 			 * @param[in] _description Description of the parameter value
 			 */
-			void add(const TYPE& _value, const std::string& _name, const std::string& _description = "") {
+			void add(const TYPE& _value, const etk::String& _name, const etk::String& _description = "") {
 				auto it = m_list.find(_name);
 				if (it != m_list.end()) {
 					it->second = _value;
 					return;
 				}
-				m_list.insert(std::make_pair(_name, _value));
+				m_list.insert(etk::makePair(_name, _value));
 			}
 			/**
 			 * @brief Remove a value of the element availlable
 			 * @param[in] _name Name of the value to remove
 			 */
-			void remove(const std::string& _name) {
+			void remove(const etk::String& _name) {
 				auto it = m_list.find(_name);
 				bool firstValue = false;
 				bool firstDefault = false;
@@ -98,7 +98,7 @@ namespace eproperty {
 			 * @param[in] _nameOld Old property name to replace
 			 * @param[in] _nameNew New name of the property
 			 */
-			void rename(const std::string& _nameOld, const std::string& _nameNew) {
+			void rename(const etk::String& _nameOld, const etk::String& _nameNew) {
 				//get old value
 				TYPE value;
 				auto it = m_list.find(_nameOld);
@@ -111,10 +111,10 @@ namespace eproperty {
 				remove(_nameOld);
 				add(value, _nameNew);
 			}
-			std::string getPropertyType() const override {
+			etk::String getPropertyType() const override {
 				return "eproperty::List";
 			}
-			void setString(const std::string& _newVal) override {
+			void setString(const etk::String& _newVal) override {
 				auto it = m_list.find(_newVal);
 				if (it != m_list.end()) {
 					if (it->second != eproperty::PropertyType<TYPE>::m_value) {
@@ -130,17 +130,17 @@ namespace eproperty {
 					}
 				#endif
 			}
-			std::string getInfo() const override {
-				std::string list = "List default=" + getValueSpecific(eproperty::PropertyType<TYPE>::m_default) + " in : [";
+			etk::String getInfo() const override {
+				etk::String list = "List default=" + getValueSpecific(eproperty::PropertyType<TYPE>::m_default) + " in : [";
 				for (auto &it : m_list) {
 					list += it.first + "/";
 				}
 				return list + "]";
 			}
-			std::vector<std::string> getListValue() const override {
-				std::vector<std::string> out;
+			etk::Vector<etk::String> getListValue() const override {
+				etk::Vector<etk::String> out;
 				for (auto &it : m_list) {
-					out.push_back(it.first);
+					out.pushBack(it.first);
 				}
 				return out;
 			}
@@ -179,7 +179,7 @@ namespace eproperty {
 			 * @param[in] _intValue value that might be converted in string.
 			 * @return the description string coresponding to this ID.
 			 */
-			std::string getValueSpecific(const TYPE& _valueRequested) const override {
+			etk::String getValueSpecific(const TYPE& _valueRequested) const override {
 				for (auto &it : m_list) {
 					if (it.second == _valueRequested) {
 						return it.first;
@@ -189,7 +189,7 @@ namespace eproperty {
 			}
 	};
 	//! @not_in_doc
-	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::List<TYPE>& _obj) {
+	template<typename TYPE> etk::Stream& operator <<(etk::Stream& _os, const eproperty::List<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

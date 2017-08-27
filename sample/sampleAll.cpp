@@ -38,7 +38,7 @@ class sampleClassGroup : public eproperty::Interface {
 //! [eproperty_sample_declare_class_with_interface]
 	public:
 		//! [eproperty_sample_declare_class_property_value]
-		eproperty::Value<std::string> propertyValue; //!< Simple property Value with type string
+		eproperty::Value<etk::String> propertyValue; //!< Simple property Value with type string
 		//! [eproperty_sample_declare_class_property_value]
 		//! [eproperty_sample_declare_class_property_list]
 		eproperty::List<enum simpleEnum> propertyList; //!< Simple property List with type enumeration
@@ -101,7 +101,7 @@ class sampleClassGroup : public eproperty::Interface {
 //! [eproperty_sample_class_without_interface]
 class sampleClassSolo {
 	public:
-		eproperty::Value<std::string> propertyValue;
+		eproperty::Value<etk::String> propertyValue;
 		eproperty::List<enum simpleEnum> propertyList;
 		eproperty::Range<int32_t> propertyRange;
 		sampleClassSolo():

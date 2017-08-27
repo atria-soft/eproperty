@@ -31,7 +31,7 @@ void eproperty::InterfaceData::add(eproperty::Property* _pointerOnProperty) {
 			EPROPERTY_CRITICAL("2 property can not have the same name ... ==> generate runtime error");
 		}
 	}
-	m_list.push_back(_pointerOnProperty);
+	m_list.pushBack(_pointerOnProperty);
 }
 
 void eproperty::InterfaceData::clean() {
@@ -41,7 +41,7 @@ void eproperty::InterfaceData::clean() {
 
 // Note no lock is needed at this level, because the lock is done is the upper elements ...
 // the property set might be done with a pool of property, allone, the overhed is bigger ...
-bool eproperty::InterfaceData::set(const std::string& _property, const std::string& _value) {
+bool eproperty::InterfaceData::set(const etk::String& _property, const etk::String& _value) {
 	for (auto &it : m_list) {
 		if(    it != nullptr
 		    && it->getName() == _property) {
@@ -53,7 +53,7 @@ bool eproperty::InterfaceData::set(const std::string& _property, const std::stri
 	return false;
 }
 
-std::string eproperty::InterfaceData::get(const std::string& _property) const {
+etk::String eproperty::InterfaceData::get(const etk::String& _property) const {
 	for (auto &it : m_list) {
 		if(    it != nullptr
 		    && it->getName() == _property) {
@@ -67,9 +67,9 @@ void eproperty::InterfaceData::display(bool _changeOnly) const {
 	EPROPERTY_INFO("    Object propertys:");
 	for (auto &it : m_list) {
 		if(it != nullptr) {
-			std::string paramName = it->getName();
-			std::string paramVal = it->getString();
-			std::string paramInfo = it->getInfo();
+			etk::String paramName = it->getName();
+			etk::String paramVal = it->getString();
+			etk::String paramInfo = it->getInfo();
 			if (    _changeOnly == false
 			     || it->isDefault() == false) {
 				EPROPERTY_INFO("    |       param='" << paramName << "' value=" << paramVal << "     (" << paramInfo << ")");
@@ -80,15 +80,15 @@ void eproperty::InterfaceData::display(bool _changeOnly) const {
 	}
 }
 
-std::map<std::string, std::string> eproperty::InterfaceData::getAll(bool _notIfDefault) const {
-	std::map<std::string, std::string> out;
+etk::Map<etk::String, etk::String> eproperty::InterfaceData::getAll(bool _notIfDefault) const {
+	etk::Map<etk::String, etk::String> out;
 	for (auto &it : m_list) {
 		if(it != nullptr) {
-			std::string paramName = it->getName();
-			std::string paramVal = it->getString();
+			etk::String paramName = it->getName();
+			etk::String paramVal = it->getString();
 			if (    _notIfDefault == false
 			     || it->isDefault() == false) {
-				out.insert(std::make_pair(paramName, paramVal));
+				out.insert(etk::makePair(paramName, paramVal));
 			}
 		}
 	}
@@ -108,7 +108,7 @@ eproperty::Property* eproperty::InterfaceData::getRaw(const size_t& _id) const {
 	return m_list[_id];
 }
 
-eproperty::Property* eproperty::InterfaceData::getRaw(const std::string _name) const {
+eproperty::Property* eproperty::InterfaceData::getRaw(const etk::String _name) const {
 	for (auto &it : m_list) {
 		if(it->getName() == _name) {
 			return it;

@@ -7,8 +7,8 @@
  */
 #pragma once
 
-#include <vector>
-#include <map>
+#include <etk/Vector.hpp>
+#include <etk/Map.hpp>
 
 namespace eproperty {
 	class Property;
@@ -18,7 +18,7 @@ namespace eproperty {
 	 */
 	class InterfaceData {
 		private:
-			std::vector<eproperty::Property*> m_list; //!< list of availlable Propertys (no need to free)
+			etk::Vector<eproperty::Property*> m_list; //!< list of availlable Propertys (no need to free)
 		public:
 			/**
 			 * @brief Constructor.
@@ -46,13 +46,13 @@ namespace eproperty {
 			 * @return true Property update.
 			 * @return false Property not update.
 			 */
-			bool set(const std::string& _property, const std::string& _value);
+			bool set(const etk::String& _property, const etk::String& _value);
 			/**
 			 * @brief Get a specific value of the property reference name.
 			 * @param[in] _property The property string name.
 			 * @return The value of the property (string).
 			 */
-			std::string get(const std::string& _property) const;
+			etk::String get(const etk::String& _property) const;
 			/**
 			 * @brief Display all the property value with there name.
 			 * @param[in] _changeOnly check at true if the user want to display only property that are not at default value.
@@ -63,7 +63,7 @@ namespace eproperty {
 			 * @param[in] _notIfDefault if true the parameter value with default value are not extracted.
 			 * @return map on the propertys
 			 */
-			std::map<std::string, std::string> getAll(bool _notIfDefault=true) const;
+			etk::Map<etk::String, etk::String> getAll(bool _notIfDefault=true) const;
 		public:
 			/**
 			 * @brief Get count of propertys.
@@ -81,7 +81,7 @@ namespace eproperty {
 			 * @param[in] _name name of the property.
 			 * @return pointer on the property.
 			 */
-			eproperty::Property* getRaw(const std::string _name) const;
+			eproperty::Property* getRaw(const etk::String _name) const;
 	};
 }
 

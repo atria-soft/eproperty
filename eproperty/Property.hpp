@@ -8,7 +8,7 @@
 #pragma once
 
 #include <eproperty/Interface.hpp>
-#include <string>
+#include <etk/String.hpp>
 #include <typeinfo>
 #include <functional>
 
@@ -26,14 +26,14 @@ namespace eproperty {
 		private:
 			eproperty::Interface* m_interfaceLink; //!< Base interface class to group all the property
 			Observer m_setObserver; //!< Observer of the changing value
-			std::string m_name; //!< Name of the property
+			etk::String m_name; //!< Name of the property
 		public:
 			/**
 			 * @brief Basic property elements
 			 * @param[in] _paramInterfaceLink Link on the esignal::Interface class to register parameter (can be nullptr)
 			 * @param[in] _name Name of the parameter (must be unique if _paramInterfaceLink is define)
 			 */
-			Property(eproperty::Interface* _paramInterfaceLink, const std::string& _name);
+			Property(eproperty::Interface* _paramInterfaceLink, const etk::String& _name);
 			/**
 			 * @brief Basic property elements
 			 */
@@ -58,37 +58,37 @@ namespace eproperty {
 			 * @brief Get the name of the Property.
 			 * @return The name of the Property
 			 */
-			virtual std::string getName() const;
+			virtual etk::String getName() const;
 			/**
 			 * @brief Description of the Propertys.
 			 * @return Descriptive information of the Property (for remote UI).
 			 */
-			virtual std::string getInfo() const = 0;
+			virtual etk::String getInfo() const = 0;
 			/**
 			 * @brief Get the Property type of the class in string mode.
 			 * @return The string type of the Property.
 			 */
-			virtual std::string getPropertyType() const = 0;
+			virtual etk::String getPropertyType() const = 0;
 			/**
 			 * @brief Get the type of the Property in string mode.
 			 * @return The string type of the Property.
 			 */
-			virtual std::string getType() const = 0;
+			virtual etk::String getType() const = 0;
 			/**
 			 * @brief Get the string of the current value of the Property.
 			 * @return The string description of the value.
 			 */
-			virtual std::string getString() const = 0;
+			virtual etk::String getString() const = 0;
 			/**
 			 * @brief Get the string of the default value of the Property.
 			 * @return the string decription of the default value.
 			 */
-			virtual std::string getDefault() const = 0;
+			virtual etk::String getDefault() const = 0;
 			/**
 			 * @brief Set a new value of the Property (with string interface).
 			 * @param[in] _newVal New value of the Propertys.
 			 */
-			virtual void setString(const std::string& _newVal) = 0;
+			virtual void setString(const etk::String& _newVal) = 0;
 			/**
 			 * @brief Check if the value is the default
 			 * @return true : the vakue is the default one, false otherwise.
@@ -102,8 +102,8 @@ namespace eproperty {
 			 * @brief Specific for eproperty::List to get all the possible values
 			 * @return Descriptive information of the Property (for remote UI).
 			 */
-			virtual std::vector<std::string> getListValue() const {
-				return std::vector<std::string>();
+			virtual etk::Vector<etk::String> getListValue() const {
+				return etk::Vector<etk::String>();
 			}
 		public:
 			/**

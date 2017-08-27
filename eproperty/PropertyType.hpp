@@ -30,9 +30,9 @@ namespace eproperty {
 			 */
 			template<class CLASS_TYPE>
 			PropertyType(CLASS_TYPE* _owner,
-			             const std::string& _name,
+			             const etk::String& _name,
 			             const TYPE& _defaultValue,
-			             const std::string& _description = "",
+			             const etk::String& _description = "",
 			             void (CLASS_TYPE::*_setObs)()=nullptr) :
 			  Property(_owner, _name),
 			  m_value(_defaultValue),
@@ -54,19 +54,19 @@ namespace eproperty {
 			 * @brief Destructor.
 			 */
 			virtual ~PropertyType() = default;
-			std::string getPropertyType() const override {
+			etk::String getPropertyType() const override {
 				return "eproperty::Value";
 			}
-			std::string getType() const override {
+			etk::String getType() const override {
 				return typeid(TYPE).name();
 			}
-			std::string getString() const override {
+			etk::String getString() const override {
 				return getValueSpecific(m_value);
 			}
-			std::string getDefault() const override {
+			etk::String getDefault() const override {
 				return getValueSpecific(m_default);
 			}
-			std::string getInfo() const override {
+			etk::String getInfo() const override {
 				return getType() + " default=" + getDefault();
 			}
 			bool isDefault() const override {
@@ -134,7 +134,7 @@ namespace eproperty {
 			 * @param[in] _valueRequested Value to convert in string
 			 * @return convertion of the value in string.
 			 */
-			virtual std::string getValueSpecific(const TYPE& _valueRequested) const = 0;
+			virtual etk::String getValueSpecific(const TYPE& _valueRequested) const = 0;
 		public:
 			/**
 			 * @brief Const cast the property in the Type of the data
@@ -165,7 +165,7 @@ namespace eproperty {
 			PropertyType<TYPE>& operator= (const TYPE& _newVal) = delete;
 	};
 	//! @not_in_doc
-	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::PropertyType<TYPE>& _obj) {
+	template<typename TYPE> etk::Stream& operator <<(etk::Stream& _os, const eproperty::PropertyType<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

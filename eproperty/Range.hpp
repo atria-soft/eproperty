@@ -33,11 +33,11 @@ namespace eproperty {
 			 */
 			template<class CLASS_TYPE>
 			Range(CLASS_TYPE* _owner,
-			      const std::string& _name,
+			      const etk::String& _name,
 			      const TYPE& _defaultValue,
 			      const TYPE& _min,
 			      const TYPE& _max,
-			      const std::string& _description = "",
+			      const etk::String& _description = "",
 			      void (CLASS_TYPE::*_setObs)()=nullptr) :
 			  eproperty::Value<TYPE>(_owner, _name, _defaultValue, _description, _setObs),
 			  m_min(_min),
@@ -59,15 +59,15 @@ namespace eproperty {
 			 * @brief Destructor.
 			 */
 			virtual ~Range() = default;
-			std::string getPropertyType() const override;
-			void setString(const std::string& _newVal) override;
-			std::string getInfo() const override;
+			etk::String getPropertyType() const override;
+			void setString(const etk::String& _newVal) override;
+			etk::String getInfo() const override;
 		public:
 			void set(const TYPE& _newVal) override;
 			void setDirectCheck(const TYPE& _newVal) override;
 	};
 	//! @not_in_doc
-	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Range<TYPE>& _obj) {
+	template<typename TYPE> etk::Stream& operator <<(etk::Stream& _os, const eproperty::Range<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

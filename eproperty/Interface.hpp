@@ -7,8 +7,8 @@
  */
 #pragma once
 
-#include <vector>
-#include <map>
+#include <etk/Vector.hpp>
+#include <etk/Map.hpp>
 #include <eproperty/InterfaceData.hpp>
 
 namespace eproperty {

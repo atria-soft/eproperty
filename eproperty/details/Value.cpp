@@ -14,9 +14,9 @@
 
 // void generic properties
 template class eproperty::Value<bool>;
-template class eproperty::Value<std::string>;
+template class eproperty::Value<etk::String>;
 #if __CPP_VERSION__ >= 2011
-	template class eproperty::Value<std::u32string>;
+	template class eproperty::Value<etk::UString>;
 #endif
 template class eproperty::Value<int64_t>;
 template class eproperty::Value<int32_t>;

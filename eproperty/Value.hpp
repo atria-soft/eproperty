@@ -29,9 +29,9 @@ namespace eproperty {
 			 */
 			template<class CLASS_TYPE>
 			Value(CLASS_TYPE* _owner,
-			      const std::string& _name,
+			      const etk::String& _name,
 			      const TYPE& _defaultValue,
-			      const std::string& _description = "",
+			      const etk::String& _description = "",
 			      void (CLASS_TYPE::*_setObs)()=nullptr) :
 			  eproperty::PropertyType<TYPE>(_owner, _name, _defaultValue, _description, _setObs) {
 				
@@ -42,11 +42,11 @@ namespace eproperty {
 			 */
 			Value(const TYPE& _defaultValue);
 		public:
-			std::string getValueSpecific(const TYPE& _valueRequested) const override;
-			void setString(const std::string& _newVal) override;
+			etk::String getValueSpecific(const TYPE& _valueRequested) const override;
+			void setString(const etk::String& _newVal) override;
 	};
 	//! @not_in_doc
-	template<typename TYPE> std::ostream& operator <<(std::ostream& _os, const eproperty::Value<TYPE>& _obj) {
+	template<typename TYPE> etk::Stream& operator <<(etk::Stream& _os, const eproperty::Value<TYPE>& _obj) {
 		_os << _obj.get();
 		return _os;
 	}

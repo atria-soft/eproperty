@@ -51,7 +51,7 @@ def configure(target, my_module):
 	    ])
 	my_module.add_path(".")
 	my_module.add_flag('c++', [
-	    "-DEPROPERTY_VERSION=\"\\\"" + tools.version_to_string(get_version()) + "\\\"\""
+	    "-DEPROPERTY_VERSION=\"\\\"" + tools.version_toString(get_version()) + "\\\"\""
 	    ])
 	return True
 
