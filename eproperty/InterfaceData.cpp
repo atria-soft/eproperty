@@ -88,7 +88,7 @@ etk::Map<etk::String, etk::String> eproperty::InterfaceData::getAll(bool _notIfD
 			etk::String paramVal = it->getString();
 			if (    _notIfDefault == false
 			     || it->isDefault() == false) {
-				out.insert(etk::makePair(paramName, paramVal));
+				out.set(paramName, paramVal);
 			}
 		}
 	}
