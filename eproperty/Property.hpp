@@ -22,7 +22,7 @@ namespace eproperty {
 	 */
 	class Property {
 		public:
-			using Observer = std::function<void()>; //!< Local main object observer of changing value of the property
+			using Observer = etk::Function<void()>; //!< Local main object observer of changing value of the property
 		private:
 			eproperty::Interface* m_interfaceLink; //!< Base interface class to group all the property
 			Observer m_setObserver; //!< Observer of the changing value
