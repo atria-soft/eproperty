@@ -9,7 +9,6 @@
 
 #include <eproperty/Interface.hpp>
 #include <eproperty/Value.hpp>
-#include <typeinfo>
 
 namespace eproperty {
 	/**

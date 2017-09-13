@@ -30,7 +30,7 @@ etk::String eproperty::Range<TYPE>::getPropertyType() const {
 template<class TYPE>
 void eproperty::Range<TYPE>::setString(const etk::String& _newVal) {
 	TYPE val;
-	// when you want to set an element in parameter you will implement the function template std::from_string
+	// when you want to set an element in parameter you will implement the function template etk::from_string
 	etk::from_string(val, _newVal);
 	set(val);
 }

@@ -9,8 +9,8 @@
 
 #include <eproperty/Interface.hpp>
 #include <etk/String.hpp>
-#include <typeinfo>
-#include <functional>
+#include <etk/typeTrait.hpp>
+#include <etk/Function.hpp>
 
 /**
  * @brief eproperty global interface for all property implementation

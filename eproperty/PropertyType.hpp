@@ -58,7 +58,7 @@ namespace eproperty {
 				return "eproperty::Value";
 			}
 			etk::String getType() const override {
-				return typeid(TYPE).name();
+				return "?TODO?";// TODO: typeid(TYPE).name();
 			}
 			etk::String getString() const override {
 				return getValueSpecific(m_value);

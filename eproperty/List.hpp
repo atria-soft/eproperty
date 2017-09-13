@@ -9,7 +9,6 @@
 
 #include <eproperty/PropertyType.hpp>
 #include <etk/Map.hpp>
-#include <typeinfo>
 
 namespace eproperty {
 	/**
@@ -60,7 +59,7 @@ namespace eproperty {
 					it->second = _value;
 					return;
 				}
-				m_list.insert(etk::makePair(_name, _value));
+				m_list.add(_name, _value);
 			}
 			/**
 			 * @brief Remove a value of the element availlable

@@ -23,7 +23,7 @@ etk::String eproperty::Value<TYPE>::getValueSpecific(const TYPE& _valueRequested
 
 template<class TYPE>
 void eproperty::Value<TYPE>::setString(const etk::String& _newVal) {
-	// when you want to set an element in parameter you will implement the function template std::from_string
+	// when you want to set an element in parameter you will implement the function template etk::from_string
 	etk::from_string(eproperty::PropertyType<TYPE>::m_value, _newVal);
 	// TODO : Do it better ...
 	eproperty::PropertyType<TYPE>::notifyChange();
