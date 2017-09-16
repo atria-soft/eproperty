@@ -10,6 +10,7 @@
 #include <eproperty/Interface.hpp>
 #include <eproperty/Property.hpp>
 #include <eproperty/debug.hpp>
+#include <etk/typeInfo.hpp>
 
 namespace eproperty {
 	/**
@@ -58,7 +59,8 @@ namespace eproperty {
 				return "eproperty::Value";
 			}
 			etk::String getType() const override {
-				return "?TODO?";// TODO: typeid(TYPE).name();
+				//return typeid(TYPE).name(); // With generic STL & RTTI ...
+				return ETK_GET_TYPE_NAME(TYPE);
 			}
 			etk::String getString() const override {
 				return getValueSpecific(m_value);
