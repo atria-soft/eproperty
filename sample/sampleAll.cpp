@@ -30,6 +30,9 @@ enum simpleEnum {
 	simpleEnum_enum3,
 	simpleEnum_enum4,
 };
+// Declare type in CPP only
+#include <etk/typeInfo.hpp>
+ETK_DECLARE_TYPE(enum simpleEnum);
 //! [eproperty_sample_declare_an_enum]
 
 //! [eproperty_sample_class_with_interface]
