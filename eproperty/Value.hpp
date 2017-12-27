@@ -41,6 +41,36 @@ namespace eproperty {
 			 * @param[in] _defaultValue Default value of the parameter.
 			 */
 			Value(const TYPE& _defaultValue);
+			/**
+			 * @brief Remove copy contructor
+			 */
+			Value(Value& _obj) = delete;
+			/**
+			 * @brief Enable move contructor
+			 */
+			Value(Value&& _obj) :
+			  PropertyType<TYPE>::PropertyType(_obj.m_default) {
+				Property::internalSwap(&_obj);
+				etk::swap(PropertyType<TYPE>::m_default, _obj.m_default);
+				etk::swap(PropertyType<TYPE>::m_value, _obj.m_value);
+			};
+			/**
+			 * @brief default destructor
+			 */
+			virtual ~Value() = default;
+			/**
+			 * @brief Remove copy operator
+			 */
+			Value& operator=(Value& _obj) = delete;
+			/**
+			 * @brief Enable move operator
+			 */
+			Value& operator=(Value&& _obj) {
+				Property::internalSwap(&_obj);
+				etk::swap(PropertyType<TYPE>::m_default, _obj.m_default);
+				etk::swap(PropertyType<TYPE>::m_value, _obj.m_value);
+				return *this;
+			};
 		public:
 			etk::String getValueSpecific(const TYPE& _valueRequested) const override;
 			void setString(const etk::String& _newVal) override;

@@ -52,9 +52,34 @@ namespace eproperty {
 				
 			}
 			/**
+			 * @brief Remove copy contructor
+			 */
+			PropertyType(PropertyType& _obj) = delete;
+			/**
+			 * @brief Enable move contructor
+			 */
+			PropertyType(PropertyType&& _obj) {
+				Property::internalSwap(&_obj);
+				etk::swap(m_default, _obj.m_default);
+				etk::swap(m_value, _obj.m_value);
+			}
+			/**
 			 * @brief Destructor.
 			 */
 			virtual ~PropertyType() = default;
+			/**
+			 * @brief Remove copy operator
+			 */
+			PropertyType& operator=(PropertyType& _obj) = delete;
+			/**
+			 * @brief Enable move operator
+			 */
+			PropertyType& operator=(PropertyType&& _obj) {
+				Property::internalSwap(&_obj);
+				etk::swap(m_default, _obj.m_default);
+				etk::swap(m_value, _obj.m_value);
+				return *this;
+			}
 			etk::String getPropertyType() const override {
 				return "eproperty::Value";
 			}

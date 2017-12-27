@@ -18,7 +18,7 @@ namespace eproperty {
 	 */
 	class InterfaceData {
 		private:
-			etk::Vector<eproperty::Property*> m_list; //!< list of availlable Propertys (no need to free)
+			etk::Vector<eproperty::Property*> m_list; //!< list of availlable properties (no need to free)
 		public:
 			/**
 			 * @brief Constructor.
@@ -29,11 +29,16 @@ namespace eproperty {
 			 */
 			virtual ~InterfaceData();
 			/**
-			 * @brief Register a property class pointer in the List of propertys
+			 * @brief Register a property class pointer in the List of properties
 			 * @note This class does not destroy the property pointer!!!
 			 * @param[in] _pointerOnProperty Pointer on the property that might be added.
 			 */
 			void add(Property* _pointerOnProperty);
+			/**
+			 * @brief Un-Register a property class pointer in the List of properties
+			 * @param[in] _pointerOnProperty Pointer on the property that might be removed.
+			 */
+			void remove(Property* _pointerOnProperty);
 			/**
 			 * @brief Remove all the property reference in this class. 
 			 * @note no delete, just clean and inform that a property has not been removed.
@@ -61,23 +66,23 @@ namespace eproperty {
 			/**
 			 * @brief Get All the property configuration:
 			 * @param[in] _notIfDefault if true the parameter value with default value are not extracted.
-			 * @return map on the propertys
+			 * @return map on the properties
 			 */
 			etk::Map<etk::String, etk::String> getAll(bool _notIfDefault=true) const;
 		public:
 			/**
-			 * @brief Get count of propertys.
+			 * @brief Get count of properties.
 			 * @return The number of the property.
 			 */
 			size_t size() const;
 			/**
-			 * @brief Get name of a propertys.
+			 * @brief Get name of a properties.
 			 * @param[in] _id Id of the property.
 			 * @return pointer on the property.
 			 */
 			eproperty::Property* getRaw(const size_t& _id) const;
 			/**
-			 * @brief Get name of a propertys.
+			 * @brief Get name of a properties.
 			 * @param[in] _name name of the property.
 			 * @return pointer on the property.
 			 */

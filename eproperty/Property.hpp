@@ -19,12 +19,13 @@ namespace eproperty {
 	class Ref;
 	/**
 	 * @brief Base of the property With all generic element needed
+	 * @note A property is movable but not comiable ==> the atachement of an interface is a critical thngs
 	 */
 	class Property {
 		public:
 			using Observer = etk::Function<void()>; //!< Local main object observer of changing value of the property
-		private:
-			eproperty::Interface* m_interfaceLink; //!< Base interface class to group all the property
+		protected:
+			eproperty::Interface* m_interfaceLink = nullptr; //!< Base interface class to group all the property
 			Observer m_setObserver; //!< Observer of the changing value
 			etk::String m_name; //!< Name of the property
 		public:
@@ -39,16 +40,45 @@ namespace eproperty {
 			 */
 			Property();
 			/**
+			 * @brief Remove copy contructor
+			 */
+			Property(const Property& _obj) = delete;
+			/**
+			 * @brief Enable move contructor
+			 */
+			Property(Property&& _obj);
+			/**
 			 * @brief Virtualize the destructor
 			 * @internal
 			 */
-			virtual ~Property() = default;
+			virtual ~Property();
+			/**
+			 * @brief Remove copy operator
+			 */
+			Property& operator=(const Property& _obj) = delete;
+			/**
+			 * @brief Enable move operator
+			 */
+			Property& operator=(Property&& _obj);
 		protected:
 			/**
 			 * @brief Set the change observer of the property
 			 * @param[in] _setObs New observer of the property
 			 */
 			void setObserver(eproperty::Property::Observer _setObs);
+			/**
+			 * @brief Link with the interface reference.
+			 */
+			void linkInterface();
+			/**
+			 * @brief Un-link with the interface reference.
+			 */
+			void unLinkInterface();
+			/**
+			 * @brief swap local data class.
+			 * @note Must be Nullptr.
+			 */
+			void internalSwap(Property* _obj);
 		public:
 			/**
 			 * @brief call main class that PropertyChange

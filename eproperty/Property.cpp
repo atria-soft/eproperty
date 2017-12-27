@@ -11,21 +11,70 @@
 #include <eproperty/Property.hpp>
 
 
-eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const etk::String& _name) :
-  m_interfaceLink(_paramInterfaceLink),
-  m_setObserver(),
-  m_name(_name) {
+void eproperty::Property::linkInterface() {
 	// add a reference on the current Property ...
 	if (m_interfaceLink != nullptr) {
 		m_interfaceLink->properties.add(this);
 	}
 }
 
-eproperty::Property::Property() :
-  m_interfaceLink(nullptr),
+void eproperty::Property::unLinkInterface() {
+	if (m_interfaceLink != nullptr) {
+		m_interfaceLink->properties.remove(this);
+	}
+}
+
+eproperty::Property::Property(eproperty::Interface* _paramInterfaceLink, const etk::String& _name) :
+  m_interfaceLink(_paramInterfaceLink),
   m_setObserver(),
-  m_name("") {
+  m_name(_name) {
+	linkInterface();
+}
+
+void eproperty::Property::internalSwap(Property* _obj) {
+	// unplug main class
+	_obj->unLinkInterface();
+	unLinkInterface();
+	// change data
+	etk::swap(m_interfaceLink, _obj->m_interfaceLink);
+	etk::swap(m_setObserver, _obj->m_setObserver);
+	etk::swap(m_name, _obj->m_name);
+	// replug main class
+	linkInterface();
+	_obj->linkInterface();
+}
+
+eproperty::Property::Property() {
 	
+}
+
+eproperty::Property::Property(Property&& _obj) {
+	// unplug main class
+	_obj.unLinkInterface();
+	// change data
+	etk::swap(m_interfaceLink, _obj.m_interfaceLink);
+	etk::swap(m_setObserver, _obj.m_setObserver);
+	etk::swap(m_name, _obj.m_name);
+	// replug main class
+	linkInterface();
+}
+
+eproperty::Property::~Property(){
+	unLinkInterface();
+}
+
+eproperty::Property& eproperty::Property::operator=(Property&& _obj) {
+	// unplug main class
+	_obj.unLinkInterface();
+	unLinkInterface();
+	// change data
+	etk::swap(m_interfaceLink, _obj.m_interfaceLink);
+	etk::swap(m_setObserver, _obj.m_setObserver);
+	etk::swap(m_name, _obj.m_name);
+	// replug main class
+	_obj.linkInterface();
+	linkInterface();
+	return *this;
 }
 
 void eproperty::Property::setObserver(eproperty::Property::Observer _setObs) {

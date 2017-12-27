@@ -44,9 +44,37 @@ namespace eproperty {
 				
 			};
 			/**
+			 * @brief Remove copy contructor
+			 */
+			List(List& _obj) = delete;
+			/**
+			 * @brief Enable move contructor
+			 */
+			List(List&& _obj) :
+			  PropertyType<TYPE>::PropertyType(_obj.m_default) {
+				Property::internalSwap(&_obj);
+				etk::swap(PropertyType<TYPE>::m_default, _obj.m_default);
+				etk::swap(PropertyType<TYPE>::m_value, _obj.m_value);
+				etk::swap(m_list, _obj.m_list);
+			};
+			/**
 			 * @brief virtualisation of Destructor.
 			 */
 			virtual ~List() = default;
+			/**
+			 * @brief Remove copy operator
+			 */
+			List& operator=(List& _obj) = delete;
+			/**
+			 * @brief Enable move operator
+			 */
+			List& operator=(List&& _obj) {
+				Property::internalSwap(&_obj);
+				etk::swap(PropertyType<TYPE>::m_default, _obj.m_default);
+				etk::swap(PropertyType<TYPE>::m_value, _obj.m_value);
+				etk::swap(m_list, _obj.m_list);
+				return *this;
+			};
 			/**
 			 * @brief Add a value in the list of parameter
 			 * @param[in] _value Value of the string

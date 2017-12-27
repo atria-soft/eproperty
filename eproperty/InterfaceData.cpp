@@ -34,8 +34,22 @@ void eproperty::InterfaceData::add(eproperty::Property* _pointerOnProperty) {
 	m_list.pushBack(_pointerOnProperty);
 }
 
+void eproperty::InterfaceData::remove(eproperty::Property* _pointerOnProperty) {
+	if (_pointerOnProperty == nullptr) {
+		EPROPERTY_ERROR("Try to un-link a nullptr properties");
+		return;
+	}
+	auto it = m_list.begin();
+	while (it != m_list.end()) {
+		if(*it == _pointerOnProperty) {
+			it = m_list.erase(it);
+		} else {
+			++it;
+		}
+	}
+}
 void eproperty::InterfaceData::clean() {
-	// remove all pointer on these propertys
+	// remove all pointer on these properties
 	m_list.clear();
 }
 
@@ -49,7 +63,7 @@ bool eproperty::InterfaceData::set(const etk::String& _property, const etk::Stri
 			return true;
 		}
 	}
-	// can not find the propertys :
+	// can not find the properties :
 	return false;
 }
 
@@ -64,7 +78,7 @@ etk::String eproperty::InterfaceData::get(const etk::String& _property) const {
 }
 
 void eproperty::InterfaceData::display(bool _changeOnly) const {
-	EPROPERTY_INFO("    Object propertys:");
+	EPROPERTY_INFO("    Object properties:");
 	for (auto &it : m_list) {
 		if(it != nullptr) {
 			etk::String paramName = it->getName();

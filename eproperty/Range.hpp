@@ -55,9 +55,39 @@ namespace eproperty {
 			      const TYPE& _min,
 			      const TYPE& _max);
 			/**
+			 * @brief Remove copy contructor
+			 */
+			Range(Range& _obj) = delete;
+			/**
+			 * @brief Enable move contructor
+			 */
+			Range(Range&& _obj) :
+			  Value<TYPE>::Value(_obj.m_default) {
+				Property::internalSwap(&_obj);
+				etk::swap(PropertyType<TYPE>::m_default, _obj.m_default);
+				etk::swap(PropertyType<TYPE>::m_value, _obj.m_value);
+				etk::swap(m_min, _obj.m_min);
+				etk::swap(m_max, _obj.m_max);
+			};
+			/**
 			 * @brief Destructor.
 			 */
 			virtual ~Range() = default;
+			/**
+			 * @brief Remove copy operator
+			 */
+			Range& operator=(Range& _obj) = delete;
+			/**
+			 * @brief Enable move operator
+			 */
+			Range& operator=(Range&& _obj) {
+				Property::internalSwap(&_obj);
+				etk::swap(PropertyType<TYPE>::m_default, _obj.m_default);
+				etk::swap(PropertyType<TYPE>::m_value, _obj.m_value);
+				etk::swap(m_min, _obj.m_min);
+				etk::swap(m_max, _obj.m_max);
+				return *this;
+			};
 			etk::String getPropertyType() const override;
 			void setString(const etk::String& _newVal) override;
 			etk::String getInfo() const override;
