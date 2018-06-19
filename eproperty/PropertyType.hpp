@@ -23,7 +23,7 @@ namespace eproperty {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
-			 * @param[in] _owner Owner of the parameter (nullptr if none).
+			 * @param[in] _owner Owner of the parameter (null if none).
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
 			 * @param[in] _description description of the parameter.
@@ -34,11 +34,11 @@ namespace eproperty {
 			             const etk::String& _name,
 			             const TYPE& _defaultValue,
 			             const etk::String& _description = "",
-			             void (CLASS_TYPE::*_setObs)()=nullptr) :
+			             void (CLASS_TYPE::*_setObs)()=null) :
 			  Property(_owner, _name),
 			  m_value(_defaultValue),
 			  m_default(_defaultValue) {
-				if (_setObs != nullptr) {
+				if (_setObs != null) {
 					setObserver([=](){(*_owner.*_setObs)();});
 				}
 			}

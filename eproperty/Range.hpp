@@ -22,7 +22,7 @@ namespace eproperty {
 		public:
 			/**
 			 * @brief Create a parameter with a specific type.
-			 * @param[in] _owner reference on the parameter lister (nullptr if none).
+			 * @param[in] _owner reference on the parameter lister (null if none).
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
 			 * @param[in] _min Minumum value.
@@ -37,7 +37,7 @@ namespace eproperty {
 			      const TYPE& _min,
 			      const TYPE& _max,
 			      const etk::String& _description = "",
-			      void (CLASS_TYPE::*_setObs)()=nullptr) :
+			      void (CLASS_TYPE::*_setObs)()=null) :
 			  eproperty::Value<TYPE>(_owner, _name, _defaultValue, _description, _setObs),
 			  m_min(_min),
 			  m_max(_max) {

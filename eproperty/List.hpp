@@ -19,7 +19,7 @@ namespace eproperty {
 			etk::Map<etk::String, TYPE> m_list; //!< pointer on the list of all elements.
 		public:
 			/**
-			 * @brief Create a parameter with List of element parameter (nullptr if none).
+			 * @brief Create a parameter with List of element parameter (null if none).
 			 * @param[in] _owner reference on the parameter lister.
 			 * @param[in] _name Static name of the parameter.
 			 * @param[in] _defaultValue Default value of the parameter.
@@ -31,12 +31,12 @@ namespace eproperty {
 			     const etk::String& _name,
 			     const TYPE& _defaultValue,
 			     const etk::String& _description="",
-			     void (CLASS_TYPE::*_setObs)()=nullptr) :
+			     void (CLASS_TYPE::*_setObs)()=null) :
 			  eproperty::PropertyType<TYPE>(_owner, _name, _defaultValue, _description, _setObs) {
 				
 			};
 			/**
-			 * @brief Create a parameter with List of element parameter (nullptr if none).
+			 * @brief Create a parameter with List of element parameter (null if none).
 			 * @param[in] _defaultValue Default value of the parameter.
 			 */
 			List(const TYPE& _defaultValue) :

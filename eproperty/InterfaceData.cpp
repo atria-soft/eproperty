@@ -21,12 +21,12 @@ eproperty::InterfaceData::~InterfaceData() {
 
 // note this pointer is not allocated and not free at the end of the class
 void eproperty::InterfaceData::add(eproperty::Property* _pointerOnProperty) {
-	if (_pointerOnProperty == nullptr) {
-		EPROPERTY_ERROR("Try to link a nullptr properties");
+	if (_pointerOnProperty == null) {
+		EPROPERTY_ERROR("Try to link a null properties");
 		return;
 	}
 	for (auto &it : m_list) {
-		if(    it != nullptr
+		if(    it != null
 		    && it->getName() == _pointerOnProperty->getName()) {
 			EPROPERTY_CRITICAL("2 property can not have the same name ... ==> generate runtime error");
 		}
@@ -35,8 +35,8 @@ void eproperty::InterfaceData::add(eproperty::Property* _pointerOnProperty) {
 }
 
 void eproperty::InterfaceData::remove(eproperty::Property* _pointerOnProperty) {
-	if (_pointerOnProperty == nullptr) {
-		EPROPERTY_ERROR("Try to un-link a nullptr properties");
+	if (_pointerOnProperty == null) {
+		EPROPERTY_ERROR("Try to un-link a null properties");
 		return;
 	}
 	auto it = m_list.begin();
@@ -57,7 +57,7 @@ void eproperty::InterfaceData::clean() {
 // the property set might be done with a pool of property, allone, the overhed is bigger ...
 bool eproperty::InterfaceData::set(const etk::String& _property, const etk::String& _value) {
 	for (auto &it : m_list) {
-		if(    it != nullptr
+		if(    it != null
 		    && it->getName() == _property) {
 			it->setString(_value);
 			return true;
@@ -69,7 +69,7 @@ bool eproperty::InterfaceData::set(const etk::String& _property, const etk::Stri
 
 etk::String eproperty::InterfaceData::get(const etk::String& _property) const {
 	for (auto &it : m_list) {
-		if(    it != nullptr
+		if(    it != null
 		    && it->getName() == _property) {
 			return it->getString();
 		}
@@ -80,7 +80,7 @@ etk::String eproperty::InterfaceData::get(const etk::String& _property) const {
 void eproperty::InterfaceData::display(bool _changeOnly) const {
 	EPROPERTY_INFO("    Object properties:");
 	for (auto &it : m_list) {
-		if(it != nullptr) {
+		if(it != null) {
 			etk::String paramName = it->getName();
 			etk::String paramVal = it->getString();
 			etk::String paramInfo = it->getInfo();
@@ -89,7 +89,7 @@ void eproperty::InterfaceData::display(bool _changeOnly) const {
 				EPROPERTY_INFO("    |       param='" << paramName << "' value=" << paramVal << "     (" << paramInfo << ")");
 			}
 		} else {
-			EPROPERTY_INFO("    |       param=nullptr");
+			EPROPERTY_INFO("    |       param=null");
 		}
 	}
 }
@@ -97,7 +97,7 @@ void eproperty::InterfaceData::display(bool _changeOnly) const {
 etk::Map<etk::String, etk::String> eproperty::InterfaceData::getAll(bool _notIfDefault) const {
 	etk::Map<etk::String, etk::String> out;
 	for (auto &it : m_list) {
-		if(it != nullptr) {
+		if(it != null) {
 			etk::String paramName = it->getName();
 			etk::String paramVal = it->getString();
 			if (    _notIfDefault == false
@@ -117,7 +117,7 @@ size_t eproperty::InterfaceData::size() const {
 eproperty::Property* eproperty::InterfaceData::getRaw(const size_t& _id) const {
 	if (_id >= m_list.size()) {
 		EPROPERTY_ERROR("Wrong ID for property list. " << _id << " >= " << m_list.size());
-		return nullptr;
+		return null;
 	}
 	return m_list[_id];
 }
@@ -128,6 +128,6 @@ eproperty::Property* eproperty::InterfaceData::getRaw(const etk::String _name) c
 			return it;
 		}
 	}
-	return nullptr;
+	return null;
 }
 

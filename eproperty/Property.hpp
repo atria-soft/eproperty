@@ -25,13 +25,13 @@ namespace eproperty {
 		public:
 			using Observer = etk::Function<void()>; //!< Local main object observer of changing value of the property
 		protected:
-			eproperty::Interface* m_interfaceLink = nullptr; //!< Base interface class to group all the property
+			eproperty::Interface* m_interfaceLink = null; //!< Base interface class to group all the property
 			Observer m_setObserver; //!< Observer of the changing value
 			etk::String m_name; //!< Name of the property
 		public:
 			/**
 			 * @brief Basic property elements
-			 * @param[in] _paramInterfaceLink Link on the esignal::Interface class to register parameter (can be nullptr)
+			 * @param[in] _paramInterfaceLink Link on the esignal::Interface class to register parameter (can be null)
 			 * @param[in] _name Name of the parameter (must be unique if _paramInterfaceLink is define)
 			 */
 			Property(eproperty::Interface* _paramInterfaceLink, const etk::String& _name);

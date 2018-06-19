@@ -13,13 +13,13 @@
 
 void eproperty::Property::linkInterface() {
 	// add a reference on the current Property ...
-	if (m_interfaceLink != nullptr) {
+	if (m_interfaceLink != null) {
 		m_interfaceLink->properties.add(this);
 	}
 }
 
 void eproperty::Property::unLinkInterface() {
-	if (m_interfaceLink != nullptr) {
+	if (m_interfaceLink != null) {
 		m_interfaceLink->properties.remove(this);
 	}
 }
@@ -86,7 +86,7 @@ etk::String eproperty::Property::getName() const {
 }
 
 void eproperty::Property::notifyChange() const {
-	if (m_setObserver != nullptr) {
+	if (m_setObserver != null) {
 		m_setObserver();
 	}
 	//m_interfaceLink.onPropertyChangeValue();
