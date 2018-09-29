@@ -11,6 +11,8 @@
 #include <etk/math/Vector2D.hpp>
 #include <etk/math/Vector3D.hpp>
 #include <etk/Color.hpp>
+#include <etk/path/Path.hpp>
+#include <etk/uri/Uri.hpp>
 
 // void generic properties
 template class eproperty::Value<bool>;
@@ -46,3 +48,6 @@ template class eproperty::Value<etk::Color<unsigned char,4>>;
 template class eproperty::Value<etk::Color<unsigned char,3>>;
 template class eproperty::Value<etk::Color<float,4>>;
 template class eproperty::Value<etk::Color<float,3>>;
+
+template class eproperty::Value<etk::Path>;
+template class eproperty::Value<etk::Uri>;
